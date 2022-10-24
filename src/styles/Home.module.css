@@ -145,12 +145,11 @@
   border-radius: 3px;
   text-decoration: none;
   color: #fff;
-  outline: 1px solid #4f555f;
   background-color: #373c43;
 }
 
 .tool:hover{
-  background-color: #13181C;
+  outline: 1.4px solid #4f555f;
 }
 
 .tool img{
@@ -279,7 +278,6 @@
   padding: 25px 20px;
   border-radius: 3px;
   text-decoration: none;
-  outline: 1px solid #4f555f;
   background-color: #373c43;
   color: #fff;
 }
@@ -292,7 +290,7 @@
 }
 
 .topicBox:hover{
-  background-color: #13181C;
+  outline: 1.4px solid #4f555f;
 }
 
 .topicBox h4{
@@ -334,7 +332,7 @@
 
   .topicContainerCenter{
     grid-column-start: 2;
-  grid-column-end: 12;
+    grid-column-end: 12;
   }
 }
 
@@ -414,19 +412,20 @@
   border-bottom: 1px solid #4f555f;
   background-color: #1E1E1E;
   padding: 0.75rem 1.25rem;
-  font-size: 15px;
-  font-weight: 700;
   color: #fff;
 }
 
 .topCode p{
   margin: 0 12px 0 0;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .topCode button{
   padding: 6px 10px;
-  border-radius: 3px;
   margin: 0 0 0 5px 0;
+  border-radius: 3px;
+  font-size: 14px;
   border: none;
   outline: 1px solid #4f555f;
   background: none;

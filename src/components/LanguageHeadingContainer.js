@@ -3,6 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import styles from "../styles/Home.module.css";
 
 const textoDeEjemplo = "Final";
+const language = "jsx"
 
 export default function LanguageHeadingContainer() {
   const [copied, setCopied] = useState(false);
@@ -16,7 +17,7 @@ export default function LanguageHeadingContainer() {
 
   return (
     <div className={styles.topCode}>
-      <p>jsx</p>
+      <p>{language.toUpperCase()}</p>
 
       <CopyToClipboard text={textoDeEjemplo}>
         <button onClick={copyAlert}>{copied ? "Copied!" : "Copy"}</button>
