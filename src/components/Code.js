@@ -1,36 +1,27 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
+import Prism from "prism-react-renderer/prism";
 import theme from "prism-react-renderer/themes/vsDark";
 import styles from "../styles/Home.module.css";
 import LanguageHeadingContainer from "./LanguageHeadingContainer";
 //vsDark
 //nightOwl
 
-const exampleCode = `
-const dynosAndFriends = ['🦖', '🦕', ['🦎', '🐊']]
-const clone = structuredClone(dynosAndFriends)
+(typeof global !== "undefined" ? global : window).Prism = Prism;
 
-// En el primer elemento del Array anidado ponemos una 🐓
-clone[2][0] = '🐓' 
+require("prismjs/components/prism-java");
 
-// En el clon está todo bien...
-console.log(clone) // -> [ '🦖', '🦕', [ '🐓', '🐊' ] ]
-
-// ¡Y el original sigue estando inalterado!
-console.log(dynosAndFriends) // -> [ '🦖', '🦕', [ '🦎', '🐊' ] ]
-`;
-
-const Code = () => {
+const Code = ({language, code}) => {
   return (
     <>
       <Highlight
         {...defaultProps}
-        code={exampleCode}
-        language="jsx"
+        code={code}
+        language={language}
         theme={theme}
       >
         {({ style, tokens, getLineProps, getTokenProps }) => (
           <div className={styles.codeContainer}>
-            <LanguageHeadingContainer/>
+            <LanguageHeadingContainer code={code} language={language}/>
             <pre className={styles.code} style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>

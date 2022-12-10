@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.css";
 
-export default function ImageDes() {
+export default function ImageDes({altImage, image}) {
   return (
     <img
-      src="https://isaijesus.netlify.app/img/projects/pomodoro.png"
-      alt="Ejemplo"
+      src={image}
+      alt={altImage}
       className={styles.image}
     />
   );

@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
 
-export default function Subtitle() {
+export default function Subtitle({subtitle}) {
   return (
-    <h2 className={styles.subtitle}>¿Por qué no puedo usar simplemente la asignación = para copiar un Array? 😱</h2>
-  )
+    <h2 className={styles.subtitle}>{subtitle}</h2>
+  );
 }

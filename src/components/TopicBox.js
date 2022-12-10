@@ -1,16 +1,12 @@
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export default function TopicBox() {
+export default function TopicBox({_id, titleTopic, descriptionTopic}) {
   return (
-    <Link href="/topics/topic">
+    <Link href={`/topics/${_id}`}>
       <a className={styles.topicBox}>
-        <h4>Hooks de React JS</h4>
-        <p>
-          Ejemplo de texto de descripción del contenido que va por debajo del
-          contenido. Aquí iría lo que tendría el contenido por ejemplo de los
-          hooks.
-        </p>
+        <h4>{titleTopic}</h4>
+        <p>{descriptionTopic}</p>
       </a>
     </Link>
   );

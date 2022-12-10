@@ -1,14 +1,12 @@
 import styles from "../styles/Home.module.css";
 
-export default function ExternalLink() {
+export default function ExternalLink({link, text}) {
   return (
     <a
-      href="https://github.com/IsaiJesus"
+      href={link}
       target="_blank"
       rel="noreferrer"
       className={styles.link}
-    >
-      Github de Isai Jesús
-    </a>
+    >{text}</a>
   );
 }
