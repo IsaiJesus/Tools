@@ -9,9 +9,9 @@
   background-color: #202225;
 }
 
-/*.containerTop{
+.containerTop{
   width: 100%;
-}*/
+}
 
 .containerMain{
   width: 100%;
@@ -296,12 +296,14 @@
 .topicsContainer{
   padding: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .topicBox{
   width: calc(100% - 40px);
+  margin-bottom: 15px;
   padding: 25px 20px;
   border-radius: 3px;
   text-decoration: none;
@@ -482,7 +484,24 @@
 
 /*FORM*/
 
-.form{
+.containerForm{
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+
+.containerForm form{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerForm aside{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,4 +1,3 @@
-//Cut the imports to src
 {
   "compilerOptions": {
     "baseUrl": "src"

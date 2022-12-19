@@ -14,7 +14,7 @@ export default function Topic({ topic, error }) {
     return <Error statusCode={error.statusCode} title={error.statusText} />;
 
   return (
-    <div className={styles.containerMain}>
+    <main className={styles.containerMain}>
       <Head>
         <title>{topic.titleTopic} - Tools</title>
       </Head>
@@ -44,7 +44,7 @@ export default function Topic({ topic, error }) {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
