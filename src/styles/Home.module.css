@@ -85,7 +85,7 @@
   border: none;
   font-size: 16px;
   background: none;
-  color: #fff;
+  color: #FFF;
 }
 
 .searchNav input::placeholder {
@@ -487,21 +487,108 @@
 .containerForm{
   width: 100%;
   display: grid;
-  align-items: center;
+  align-items: flex-start;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
+  color: #FFF;
+}
+
+.containerForm h1{
+  font-size: 26px;
+  padding: 10px 0;
+  margin: 0 0 18px 0;
 }
 
 .containerForm form{
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.containerForm aside{
+.containerForm form input, .containerForm form textarea{
+  width: calc(400px - 36px);
+  font-family: Arial;
+  max-height: 100px;
+  max-width: calc(400px - 36px);
+}
+
+.containerForm form textarea{
+  height: 60px;
+}
+
+.containerForm form select{
+  width: 400px;
+}
+
+.formInputs{
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border-radius: 6px;
+  outline: 1px solid #4F555F;
+  background-color: #373C43;
+  color: #FFF;
+  outline: none;
+  border: none;
+}
+
+.formInputs:focus{
+  outline: 1px solid #F0F0F0;
+}
+
+.containerForm form ::placeholder{
+  color: #AAAAAA;
+}
+
+.formDivider{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #757575;
+}
+
+.formSubmit{
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #373C43;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.formSubmit:hover{
+  outline: 1px solid #F0F0F0;
+}
+
+.containerForm aside{
+  padding: 30px;
+  outline: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning{
+  display: flex;
+  align-items: center;
+  color: #fdc500;
+  margin-bottom: 15px;
+}
+
+.warning p{
+  margin-left: 8px;
+}
+
+@media only screen and (max-width: 768px){
+  .containerForm{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

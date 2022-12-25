@@ -27,7 +27,7 @@ const Footer = () => {
           <FaEnvelope />
         </a>
       </div>
-      <h3>Made by Isai Jesus. ❤️</h3>
+      <h3>Made by Isai Jesus</h3>
     </footer>
   );
 };

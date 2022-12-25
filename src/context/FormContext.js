@@ -6,6 +6,7 @@ const initialState = {
   title: "",
   description: "",
   imageTool: "",  //window.localStorage.getItem("imageTool")
+  categoryTopic: ""
 }
 
 const FormProvider = ({children}) => {
@@ -13,7 +14,7 @@ const FormProvider = ({children}) => {
   const [form, setForm] = useState(initialState);
 
   const handleChange = ({ target: { name, value }}) => {
-    setForm({ ...settings, [name]: value });
+    setForm({ ...form, [name]: value });
     /*if(name === "imageTool") {
       window.localStorage.setItem("task", value);
     }*/
@@ -22,6 +23,8 @@ const FormProvider = ({children}) => {
   return (
     <FormContext.Provider value={{
       form,
+      initialState,
+      setForm,
       handleChange
     }}>{children}</FormContext.Provider>
   )
