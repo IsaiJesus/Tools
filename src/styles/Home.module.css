@@ -437,6 +437,8 @@
 
 .codeContainer{
   margin: 10px 0 12px 0;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .code{
@@ -568,13 +570,106 @@
 }
 
 .containerForm aside{
+  overflow-x: hidden;
   padding: 30px;
-  outline: 1px solid blue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+.boxPreview{
+  width: 100%;
+}
+
+.toolHeaderAside{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.toolHeaderAside img{
+  padding: 10px 10px 10px 0;
+}
+
+.toolHeaderAside div{
+  width: 100%;
+  padding: 10px;
+  border-left: 1px solid #4f555f;
+}
+
+.toolHeaderAside div h2{
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 21px;
+  border-bottom: 1px solid #4f555f;
+}
+
+.toolHeaderAside div p{
+  margin: 6px 0 0 0;
+  font-size: 16px;
+}
+
+.topicHeaderAside{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-bottom: 1px solid #4f555f;
+}
+
+.topicHeaderAside h2{
+  margin: 0 0 12px 0;
+  font-size: 21px;
+}
+
+.topicHeaderAside p{
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.topicContentAside{
+  padding: 15px 0;
+}
+
+.boxHidden{
+  display: none;
+}
+
+.containerItem{
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items:baseline;
+  justify-content: space-between;
+}
+
+.boxButtonsItem{
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonItem{
+  padding: 8px 10px;
+  margin-left: 6px;
+  border-radius: 5px;
+  border: none;
+  outline: 1px solid #373C43;
+  background-color: rgb(0, 0, 0, 0.2);
+  color: rgba(85, 85, 85, 0.8);
+  cursor: pointer;
+}
+
+.buttonItem:hover{
+  outline: 1px solid #4f555f;
+  background-color: rgb(0, 0, 0, 0.6);
+  color: #FFF;
+}
+
+/*.containerCodeAside{
+  border: 1px solid green;
+  overflow-x: auto;
+}*/
 
 .warning{
   display: flex;
@@ -587,7 +682,7 @@
   margin-left: 8px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 1024px){
   .containerForm{
     grid-template-columns: repeat(1, 1fr);
   }

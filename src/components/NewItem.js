@@ -19,6 +19,7 @@ export default function NewItem({ addItem }) {
         <textarea
           name="subtitle"
           className={styles.formInputs}
+          value={item.content}
           onChange={handleChange}
           placeholder="Introduce un subtítulo"
           autoComplete="off"
@@ -27,6 +28,7 @@ export default function NewItem({ addItem }) {
         <textarea
           name="text"
           className={styles.formInputs}
+          value={item.content}
           onChange={handleChange}
           placeholder="Introduce un texto o párrafo"
           autoComplete="off"
@@ -37,6 +39,7 @@ export default function NewItem({ addItem }) {
             type="text"
             name="textLink"
             className={styles.formInputs}
+
             onChange={handleChange}
             placeholder="Introduce el texto del link"
             autoComplete="off"
@@ -45,6 +48,7 @@ export default function NewItem({ addItem }) {
             type="text"
             name="link"
             className={styles.formInputs}
+
             onChange={handleChange}
             placeholder="Introduce el link"
             autoComplete="off"
@@ -56,6 +60,7 @@ export default function NewItem({ addItem }) {
             type="text"
             name="language"
             className={styles.formInputs}
+
             onChange={handleChange}
             placeholder="Introduce el lenguaje del código"
             autoComplete="off"
@@ -63,6 +68,7 @@ export default function NewItem({ addItem }) {
           <textarea
             name="code"
             className={styles.formInputs}
+
             onChange={handleChange}
             placeholder="Introduce tu código"
             autoComplete="off"
@@ -73,6 +79,7 @@ export default function NewItem({ addItem }) {
           name="image"
           type="text"
           className={styles.formInputs}
+          value={item.content}
           onChange={handleChange}
           placeholder="Introduce el link de tu imagen"
           autoComplete="off"

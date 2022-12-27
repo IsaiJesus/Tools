@@ -18,7 +18,10 @@ export default function Form() {
   };
   const handleAddItem = (e) => {
     setAddItem(e.target.value);
-    setItem("");
+    setItem({
+      type: "",
+      content: ""
+    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
