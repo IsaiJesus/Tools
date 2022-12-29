@@ -7,21 +7,22 @@ import NewItem from "./NewItem";
 
 export default function Form() {
   const { form, setForm, initialState } = useContext(FormContext);
-  const { setItem } = useContext(ItemsContext);
+  const { setItem, addItem, setAddItem, setEditActive, initialStateEdit } = useContext(ItemsContext);
 
   const [whatToAdd, setWhatToAdd] = useState("");
-  const [addItem, setAddItem] = useState("");
 
   const handleWhatToAdd = (e) => {
     setWhatToAdd(e.target.value);
     setForm(initialState);
+    setEditActive(initialStateEdit);
   };
   const handleAddItem = (e) => {
     setAddItem(e.target.value);
     setItem({
       type: "",
-      content: ""
+      content: "",
     });
+    setEditActive(initialStateEdit);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,19 +41,22 @@ export default function Form() {
         <option value="herramienta">Una herramienta</option>
         <option value="tema">Un tema</option>
       </select>
-      {whatToAdd !== "" && <FormTitleDescription whatToAdd={whatToAdd} form={form}/>}
+      {whatToAdd !== "" && (
+        <FormTitleDescription whatToAdd={whatToAdd} form={form} />
+      )}
       {whatToAdd == "tema" && whatToAdd !== "" && (
         <select
-        name="addItem"
-        className={styles.formInputs}
+          name="addItem"
+          className={styles.formInputs}
+          value={addItem}
           onChange={handleAddItem}
         >
           <option>Añade un nuevo elemento</option>
-          <option value="subtitulo">Subtítulo</option>
-          <option value="texto">Texto/párrafo</option>
+          <option value="subtitle">Subtítulo</option>
+          <option value="text">Texto/párrafo</option>
           <option value="link">Link</option>
-          <option value="codigo">Código</option>
-          <option value="imagen">Imagen</option>
+          <option value="code">Código</option>
+          <option value="image">Imagen</option>
         </select>
       )}
       {whatToAdd == "tema" && addItem !== "" && <NewItem addItem={addItem} />}

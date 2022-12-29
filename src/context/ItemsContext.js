@@ -3,13 +3,24 @@ import { createContext, useState } from "react";
 const ItemsContext = createContext();
 
 const initialStateItems = [];
+const initialStateItem = {
+  type: "",
+  content: ""
+};
+const initialStateEdit = {
+  index: null,
+  text: ""
+};
 
 const ItemsProvider = ({ children }) => {
+  //Array of items added
   const [items, setItems] = useState(initialStateItems);
-  const [item, setItem] = useState({
-    type: "",
-    content: ""
-  });
+  //onChange of inputs from form (data from form depending of type)
+  const [item, setItem] = useState(initialStateItem);
+  //select of topic (item to upload from select, Subtítulo, texto, código, etc)
+  const [addItem, setAddItem] = useState("");
+  //state to manipulate changes on edit button
+  const [editActive, setEditActive] = useState(initialStateEdit);
 
   const handleChange = ({ target: { name, value } }) => {
     const typeName = name;
@@ -38,6 +49,11 @@ const ItemsProvider = ({ children }) => {
         item,
         setItem,
         handleChange,
+        addItem,
+        setAddItem,
+        editActive,
+        setEditActive,
+        initialStateEdit
       }}
     >
       {children}

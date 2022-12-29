@@ -512,7 +512,6 @@
 
 .containerForm form input, .containerForm form textarea{
   width: calc(400px - 36px);
-  font-family: Arial;
 }
 
 .containerForm form textarea{
@@ -527,6 +526,8 @@
 }
 
 .formInputs{
+  width: calc(100% - 36px);
+  font-family: Arial;
   padding: 12px 18px;
   margin-bottom: 15px;
   font-size: 15px;
@@ -634,7 +635,7 @@
 
 .topicHeaderAside p{
   margin: 0 0 8px 0;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .topicContentAside{
