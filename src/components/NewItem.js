@@ -1,21 +1,35 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styles from "../styles/Home.module.css";
 import ItemsContext from "context/ItemsContext";
 import Warning from "./Warning";
 
 export default function NewItem({ addItem, editActive }) {
-  const { items, setItems, item, handleChange, setEditActive, initialStateEdit } = useContext(ItemsContext);
+  const {
+    items,
+    setItems,
+    item,
+    handleChange,
+    setEditActive,
+    initialStateEdit,
+  } = useContext(ItemsContext);
+  const [validImage, setValidImage] = useState(false);
   const selectedItems = [...items];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(editActive){
-      selectedItems.splice(editActive.index, 1, item);
-      setItems(selectedItems);
-      setEditActive(initialStateEdit);
-    }else{
-      selectedItems.push(item);
-      setItems(selectedItems);
+    const regex = /\.(jpe?g|png|svg)$/i;
+    if (item.type === "image" && !regex.test(item.content)) {
+      setValidImage(true);
+    } else {
+      setValidImage(false);
+      if (editActive) {
+        selectedItems.splice(editActive.index, 1, item);
+        setItems(selectedItems);
+        setEditActive(initialStateEdit);
+      } else {
+        selectedItems.push(item);
+        setItems(selectedItems);
+      }
     }
   };
 
@@ -84,11 +98,14 @@ export default function NewItem({ addItem, editActive }) {
           autoComplete="off"
         />
       ) : (
-        <Warning />
+        <Warning text={"Elige una opción determinada."}/>
       )}
       <button onClick={handleSubmit} className={styles.formSubmit}>
         {editActive ? "Editar" : "Añadir"} item
       </button>
+      {
+        validImage && <Warning text={"Introduce una imagen válida (jpg, jpeg, png, svg)."}/>
+      }
     </div>
   );
 }

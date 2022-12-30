@@ -62,7 +62,7 @@ export default function FormTitleDescription({ whatToAdd, form }) {
           <option value="Web">Web</option>
         </select>
       ) : (
-        <Warning />
+        <Warning text={"Elige una opción determinada."}/>
       )}
     </div>
   );

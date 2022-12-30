@@ -704,13 +704,14 @@
 
 .warning{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   color: #fdc500;
-  margin-bottom: 15px;
+  margin: 15px 0;
 }
 
 .warning p{
-  margin-left: 8px;
+  margin: 0 0 0 8px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px){
