@@ -1,8 +1,8 @@
 import Error from "next/error";
 import Head from "next/head";
 import Code from "../../../components/Code";
-import ExternalLink from "../../../components/ExternalLink";
-import ImageDes from "../../../components/ImageDes";
+import Link from "../../../components/Link";
+import ImageTopic from "../../../components/ImageTopic";
 import Subtitle from "../../../components/Subtitle";
 import Text from "../../../components/Text";
 import styles from "../../../styles/Home.module.css";
@@ -33,11 +33,11 @@ export default function Topic({ topic, error }) {
                   case "text":
                     return <Text key={index} text={content.content}/>
                   case "link":
-                    return <ExternalLink key={index} {...content.content}/>
+                    return <Link key={index} {...content.content}/>
                   case "code":
                     return <Code key={index} {...content.content}/>
                   case "image":
-                    return <ImageDes key={index} {...content.content}/>
+                    return <ImageTopic key={index} image={content.content}/>
                 }
               })
             }

@@ -12,8 +12,8 @@ export default function NewItem({ addItem, editActive }) {
     setEditActive,
     initialStateEdit,
   } = useContext(ItemsContext);
-  const [validImage, setValidImage] = useState(false);
   const selectedItems = [...items];
+  const [validImage, setValidImage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

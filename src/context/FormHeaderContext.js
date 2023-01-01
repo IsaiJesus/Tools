@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-const FormContext = createContext();
+const FormHeaderContext = createContext();
 
 const initialState = {
   title: "",
@@ -9,27 +9,27 @@ const initialState = {
   categoryTopic: ""
 }
 
-const FormProvider = ({children}) => {
+const FormHeaderProvider = ({children}) => {
   
-  const [form, setForm] = useState(initialState);
+  const [formHeader, setFormHeader] = useState(initialState);
 
   const handleChange = ({ target: { name, value }}) => {
-    setForm({ ...form, [name]: value });
+    setFormHeader({ ...formHeader, [name]: value });
     /*if(name === "imageTool") {
       window.localStorage.setItem("task", value);
     }*/
   }
 
   return (
-    <FormContext.Provider value={{
-      form,
+    <FormHeaderContext.Provider value={{
+      formHeader,
       initialState,
-      setForm,
+      setFormHeader,
       handleChange
-    }}>{children}</FormContext.Provider>
+    }}>{children}</FormHeaderContext.Provider>
   )
 }
 
-export {FormProvider}
+export {FormHeaderProvider}
 
-export default FormContext;
+export default FormHeaderContext;

@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Form from "components/Form";
 import AsideForm from "components/AsideForm";
-import { FormProvider } from "context/FormContext";
+import { FormHeaderProvider } from "context/FormHeaderContext";
 import { ItemsProvider } from "context/ItemsContext";
 
 const FormContainer = () => {
@@ -11,14 +11,14 @@ const FormContainer = () => {
       <Head>
         <title>Upload contributions - Tools</title>
       </Head>
-      <FormProvider>
+      <FormHeaderProvider>
         <div className={styles.containerForm}>
           <ItemsProvider>
             <Form />
             <AsideForm />
           </ItemsProvider>
         </div>
-      </FormProvider>
+      </FormHeaderProvider>
     </main>
   );
 };

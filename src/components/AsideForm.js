@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import FormContext from "context/FormContext";
+import { useContext } from "react";
+import FormHeaderContext from "context/FormHeaderContext";
 import ItemsContext from "context/ItemsContext";
 import styles from "../styles/Home.module.css";
 import Subtitle from "./itemsAside/Subtitle";
@@ -11,7 +11,7 @@ import EditDeleteButtons from "./EditDeleteButtons";
 import NewItem from "./NewItem";
 
 export default function AsideForm() {
-  const { form } = useContext(FormContext);
+  const { formHeader } = useContext(FormHeaderContext);
   const { items, editActive } = useContext(ItemsContext);
 
   return (
@@ -19,31 +19,31 @@ export default function AsideForm() {
       <div className={styles.containerAside}>
         <h1>Preview</h1>
         <div className={styles.boxPreview}>
-          {form.imageTool ? (
+          {formHeader.imageTool ? (
             <div className={styles.toolHeaderAside}>
-              {form.imageTool && (
+              {formHeader.imageTool && (
                 <img
-                  src={form.imageTool}
+                  src={formHeader.imageTool}
                   alt="Image Tool"
                   height={70}
                   width={70}
                 />
               )}
               <div>
-                <h2>{form.title}</h2>
-                <p>{form.description}</p>
+                <h2>{formHeader.title}</h2>
+                <p>{formHeader.description}</p>
               </div>
             </div>
           ) : (
             <div
               className={
-                form.title !== "" || form.description !== ""
+                formHeader.title !== "" || formHeader.description !== ""
                   ? styles.topicHeaderAside
                   : styles.boxHidden
               }
             >
-              <h2>{form.title}</h2>
-              <p>{form.description}</p>
+              <h2>{formHeader.title}</h2>
+              <p>{formHeader.description}</p>
             </div>
           )}
           {items.length !== 0 && (
@@ -88,7 +88,7 @@ export default function AsideForm() {
                     return (
                       <div key={index}>
                         <div className={styles.containerItem}>
-                          <Code {...item.content} />
+                          <Code {...item.content} aside={true}/>
                           <EditDeleteButtons
                             index={index}
                           />

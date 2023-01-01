@@ -436,7 +436,6 @@
 }
 
 .codeContainer{
-  margin: 10px 0 12px 0;
   width: 100%;
   overflow-x: auto;
 }
@@ -600,6 +599,7 @@
 
 .toolHeaderAside img{
   padding: 10px 10px 10px 0;
+  object-fit:contain;
 }
 
 .toolHeaderAside div{
@@ -666,15 +666,15 @@
   margin-left: 6px;
   border-radius: 5px;
   border: none;
-  outline: 1px solid #373C43;
-  background-color: rgb(0, 0, 0, 0.2);
-  color: rgba(85, 85, 85, 0.8);
+  outline: 1px solid #373c4385;
+  background-color: rgb(0, 0, 0, 0.1);
+  color: rgba(85, 85, 85, 0.5);
   cursor: pointer;
 }
 
 .buttonItem:hover{
   outline: 1px solid #4f555f;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: rgb(0, 0, 0, 0.5);
   color: #FFF;
 }
 
@@ -712,6 +712,93 @@
 .warning p{
   margin: 0 0 0 8px;
   text-align: center;
+}
+
+.containerModal{
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.closeContainerModal{
+  display: none;
+}
+
+.modal{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #373C43;
+}
+
+.closeModal{
+  padding: 10px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #ababab;
+  background: none;
+  cursor: pointer;
+}
+
+.closeModal:hover{
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal p{
+  padding: 8px;
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+}
+
+.modal div{
+  margin: 10px 0;
+}
+
+.modal div button{
+  padding: 10px 20px;
+  margin: 4px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.upload{
+  background-color: #202225;
+  color: #FFF;
+}
+
+.upload:hover{
+  outline: 1px solid #F0F0F0;
+}
+
+.cancel{
+  color: #FFF;
+  background: none;
+  outline: 1px solid #F0F0F0;
+}
+
+.cancel:hover{
+  background-color: rgb(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 1024px){

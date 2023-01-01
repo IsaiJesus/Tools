@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.css";
 
-export default function ImageDes({altImage, image}) {
+export default function ImageDes({ image }) {
   return (
     <img
       src={image}
-      alt={altImage}
+      alt="Imagen del tema"
       className={styles.image}
     />
   );
