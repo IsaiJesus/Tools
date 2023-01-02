@@ -718,7 +718,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -732,6 +732,7 @@
 
 .modal{
   padding: 20px;
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -783,22 +784,24 @@
 }
 
 .upload{
-  background-color: #202225;
-  color: #FFF;
+  color: #F0F0F0;
+  background-color: #2F3136;
 }
 
 .upload:hover{
-  outline: 1px solid #F0F0F0;
+  outline: 1px solid #FFF;
+  color: #FFF;
 }
 
 .cancel{
-  color: #FFF;
+  color: #B5B5B5;
+  outline: 1px solid #B5B5B5;
   background: none;
-  outline: 1px solid #F0F0F0;
 }
 
 .cancel:hover{
-  background-color: rgb(0, 0, 0, 0.2);
+  color: #F0F0F0;
+  outline: 1px solid #F0F0F0;
 }
 
 @media only screen and (max-width: 1024px){

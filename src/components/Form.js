@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { useRouter } from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
 import styles from "../styles/Home.module.css";
 import FormHeaderContext from "context/FormHeaderContext";
 import ItemsContext from "context/ItemsContext";
@@ -7,6 +9,7 @@ import NewItem from "./NewItem";
 import { HiX } from "react-icons/hi";
 
 export default function Form() {
+  const router = useRouter();
   const { formHeader, setFormHeader, initialState } =
     useContext(FormHeaderContext);
   const {
@@ -39,7 +42,7 @@ export default function Form() {
   const handleModal = (e) => {
     e.preventDefault();
     if (whatToAdd === "") {
-      alert("Completa los campos");
+      toast.error('¡Completa los campos!')
     } else {
       if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
         setToolToUpload({
@@ -53,7 +56,9 @@ export default function Form() {
         formHeader.imageTool === ""
       ) {
         if (items.length === 0) {
-          alert("Debe de agregar por lo menos un item");
+          toast('¡Debes agregar por lo menos un item!', {
+            icon: '⚠️',
+          });
         } else {
           setTopicToUpload({
             titleTopic: formHeader.title,
@@ -68,12 +73,19 @@ export default function Form() {
   };
 
   const handleSubmit = async () => {
-    if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
-      await uploadTool();
-    } else if (formHeader.categoryTopic !== "" && formHeader.imageTool === "") {
-      await uploadTopic();
+    if(whatToAdd !== ""){
+      if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
+        await uploadTool();
+        toast.success('¡Herramienta subida exitosamente!')
+      } else if (formHeader.categoryTopic !== "" && formHeader.imageTool === "" && items.length !== 0) {
+        await uploadTopic();
+        toast.success('¡Tema subido exitosamente!')
+      }
+      setModal(false);
+      setTimeout(() => {
+        router.push("/");
+      }, 2500);
     }
-    setModal(false);
   };
 
   const uploadTool = async () => {
@@ -162,6 +174,11 @@ export default function Form() {
           </div>
         </div>
       </div>
+      <Toaster 
+        toastOptions={{
+          duration: 2500,
+        }}
+      />
     </>
   );
 }
