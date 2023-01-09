@@ -1,42 +1,63 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 import ItemsContext from "context/ItemsContext";
 import Warning from "./Warning";
 
-export default function NewItem({ addItem, editActive }) {
+export default function NewItem(props) {
+  const { addItem, editActive } = props;
   const {
     items,
     setItems,
     item,
+    setItem,
     handleChange,
     setEditActive,
     initialStateEdit,
   } = useContext(ItemsContext);
   const selectedItems = [...items];
+  //state to know if the content from input image is valid
   const [validImage, setValidImage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const regex = /\.(jpe?g|png|svg)$/i;
-    if(item.type === "" || item.content === ""){
-      toast.error("¡Añade contenido al item!")
-    }else{
+    if (item.type === "" || item.content === "") {
+      toast.error("¡Añade contenido al item!");
+    } else {
+      //The image is not valid
       if (item.type === "image" && !regex.test(item.content)) {
         setValidImage(true);
       } else {
         setValidImage(false);
         if (editActive) {
+          //Add an object and delete the selected
           selectedItems.splice(editActive.index, 1, item);
           setItems(selectedItems);
           setEditActive(initialStateEdit);
         } else {
+          //Add an item
           selectedItems.push(item);
           setItems(selectedItems);
         }
       }
+      setItem({
+        type: "",
+        content: "",
+      });
     }
   };
+
+  //If you have to edit an item, The content to appear in the input will be the content from the Array of 
+  //items with the position of index
+  useEffect(() => {
+    if (editActive) {
+      setItem({
+        type: editActive.text,
+        content: items[editActive.index].content,
+      });
+    }
+  }, [editActive, items, setItem]);
 
   return (
     <>
@@ -44,6 +65,7 @@ export default function NewItem({ addItem, editActive }) {
         {addItem === "subtitle" ? (
           <textarea
             name="subtitle"
+            value={item.content}
             className={styles.formInputs}
             onChange={handleChange}
             placeholder="Introduce un subtítulo"

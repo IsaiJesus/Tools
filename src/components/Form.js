@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { useRouter } from 'next/router';
-import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from "next/router";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 import FormHeaderContext from "context/FormHeaderContext";
 import ItemsContext from "context/ItemsContext";
@@ -21,11 +21,15 @@ export default function Form() {
     initialStateEdit,
   } = useContext(ItemsContext);
 
+  //state to know what type of element add
   const [whatToAdd, setWhatToAdd] = useState("");
+  //states to upload a tool or a topic
   const [toolToUpload, setToolToUpload] = useState({});
   const [topicToUpload, setTopicToUpload] = useState({});
+  //state to do appear a modal to upload something
   const [modal, setModal] = useState(false);
 
+  //Choose the element to add, restart the state of formHeader and editActive (editActive is to know the element to edit)
   const handleWhatToAdd = (e) => {
     setWhatToAdd(e.target.value);
     setFormHeader(initialState);
@@ -41,9 +45,11 @@ export default function Form() {
   };
   const handleModal = (e) => {
     e.preventDefault();
+    //if the fields are empty, do the alert
     if (whatToAdd === "") {
-      toast.error('¡Completa los campos!')
+      toast.error("¡Completa los campos!");
     } else {
+      //Case when you chose a tool
       if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
         setToolToUpload({
           titleTool: formHeader.title,
@@ -51,13 +57,15 @@ export default function Form() {
           imageTool: formHeader.imageTool,
         });
         setModal(true);
+      //Case when you chose a topic  
       } else if (
         formHeader.categoryTopic !== "" &&
         formHeader.imageTool === ""
       ) {
+        //You should choose at least one item to add
         if (items.length === 0) {
-          toast('¡Debes agregar por lo menos un item!', {
-            icon: '⚠️',
+          toast("¡Debes agregar por lo menos un item!", {
+            icon: "⚠️",
           });
         } else {
           setTopicToUpload({
@@ -73,15 +81,20 @@ export default function Form() {
   };
 
   const handleSubmit = async () => {
-    if(whatToAdd !== ""){
+    if (whatToAdd !== "") {
       if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
         await uploadTool();
-        toast.success('¡Herramienta subida exitosamente!')
-      } else if (formHeader.categoryTopic !== "" && formHeader.imageTool === "" && items.length !== 0) {
+        toast.success("¡Herramienta subida exitosamente!");
+      } else if (
+        formHeader.categoryTopic !== "" &&
+        formHeader.imageTool === "" &&
+        items.length !== 0
+      ) {
         await uploadTopic();
-        toast.success('¡Tema subido exitosamente!')
+        toast.success("¡Tema subido exitosamente!");
       }
       setModal(false);
+      //After doing the alert, redirect to index page 
       setTimeout(() => {
         router.push("/");
       }, 2500);
@@ -161,20 +174,23 @@ export default function Form() {
             <HiX />
           </button>
           <p>
-            ¿Estás seguro de que está correcto todo el contenido y lo quieres
-            subir?
+            ¿Estás seguro de que has revisado todo el contenido y estás listo
+            para publicarlo?
           </p>
           <div>
-            <button onClick={handleSubmit} className={styles.upload}>
+            <button onClick={handleSubmit} className={styles.modalButtons}>
               Subir
             </button>
-            <button onClick={() => setModal(false)} className={styles.cancel}>
+            <button
+              onClick={() => setModal(false)}
+              className={styles.modalButtons}
+            >
               Cancelar
             </button>
           </div>
         </div>
       </div>
-      <Toaster 
+      <Toaster
         toastOptions={{
           duration: 2500,
         }}

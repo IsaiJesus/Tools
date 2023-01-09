@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Error from "next/error";
+import OrderedTopics from '../../../helpers/GetOrderedTopics';
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
 import styles from "../../../styles/Home.module.css";
 
 export default function Tool({ tool, error }) {
   const [topics, setTopics] = useState([]);
+  const orderedTopics = OrderedTopics(topics);
 
   const getData = async () => {
     const res = await fetch("http://localhost:3000/api/topics");
@@ -36,7 +38,7 @@ export default function Tool({ tool, error }) {
                 <h5>¡No existe contenido de esa herramienta aún!</h5>
               </div>
             ) : (
-              topics
+              orderedTopics
                 .filter((topic) => tool.titleTool === topic.category)
                 .map((topic) => <TopicBox key={topic._id} {...topic} />)
             )}
