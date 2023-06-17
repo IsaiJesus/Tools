@@ -15,7 +15,7 @@ const Navbar = () => {
       <SearchForm/>
       <a href="https://isaijesus.netlify.app/" target="_blank" rel="noreferrer">
         <Image src="/img/aztec.png" alt="Portfolio" width={70} height={70} />
-        <h1 className={styles.letterLogo}>Portfolio</h1>
+        <h1 className={styles.letterLogo}>Portafolio</h1>
       </a>
     </nav>
   );

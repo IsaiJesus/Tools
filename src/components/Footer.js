@@ -4,7 +4,7 @@ import { FaGithub, FaInstagram, FaTwitter, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
-      <h2>Contact</h2>
+      <h2>Contacto</h2>
       <div className={styles.mediaFooter}>
         <a href="https://github.com/isaijesus" target="_blank" rel="noreferrer">
           <FaGithub />
@@ -27,7 +27,7 @@ const Footer = () => {
           <FaEnvelope />
         </a>
       </div>
-      <h3>Made by Isai Jesus</h3>
+      <h3>Hecho por Isai Jesus</h3>
     </footer>
   );
 };
