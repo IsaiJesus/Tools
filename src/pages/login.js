@@ -1,15 +1,43 @@
 import Head from "next/head";
+import { useDispatch } from "react-redux";
+import { logged } from "store/slices/auth";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
 
+  const dispatch = useDispatch();
+
+  const [change, setChange] = useState("");
+  const [password, setPassword] = useState(null);
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push('/form'); 
-  }
+    if (change == password) {
+      dispatch(logged());
+      router.push("/form");
+    } else {
+      toast.error("¡Contraseña incorrecta!");
+      setChange("");
+    }
+  };
+
+  useEffect(() => {
+    getPassword();
+  });
+
+  const getPassword = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/password");
+      const data = await res.json();
+      setPassword(data[0].password);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={styles.containerLogin}>
@@ -19,11 +47,22 @@ const Login = () => {
       <form onSubmit={handleSubmit} className={styles.formLogin}>
         <h1>Iniciar sesión</h1>
         <div className={styles.boxLogin}>
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" required/>
+          <label htmlFor="password">Contraseña</label>
+          <input
+            id="password"
+            type="password"
+            required
+            value={change}
+            onChange={(e) => setChange(e.target.value)}
+          />
           <button>Entrar</button>
         </div>
       </form>
+      <Toaster
+        toastOptions={{
+          duration: 2500,
+        }}
+      />
     </div>
   );
 };
