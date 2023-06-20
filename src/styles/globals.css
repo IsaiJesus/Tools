@@ -1,7 +1,26 @@
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #202225;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: rgba(0, 0, 0, 0.3);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #202225;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   white-space: pre-line

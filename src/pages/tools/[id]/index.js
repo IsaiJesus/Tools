@@ -1,24 +1,14 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Error from "next/error";
+import useFetch from "hooks/useFetch";
 import OrderedTopics from '../../../helpers/GetOrderedTopics';
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
 import styles from "../../../styles/Home.module.css";
 
 export default function Tool({ tool, error }) {
-  const [topics, setTopics] = useState([]);
+  const { topics } = useFetch();
   const orderedTopics = OrderedTopics(topics);
-
-  const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/topics");
-    const data = await res.json();
-    setTopics(data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   if (error && error.statusCode)
     return <Error statusCode={error.statusCode} title={error.statusText} />;

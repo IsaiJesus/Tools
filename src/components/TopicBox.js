@@ -1,15 +1,9 @@
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import FormattedDate from "helpers/FormattedDate";
 
 export default function TopicBox({_id, titleTopic, descriptionTopic, updatedAt}) {
-
-  //Sorts the items by date
-  const date = new Date(updatedAt);
-  const formattedDate = date.toLocaleDateString('es-MX', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
+  const formattedDate = FormattedDate(updatedAt);
 
   return (
     <Link href={`/topics/${_id}`}>
