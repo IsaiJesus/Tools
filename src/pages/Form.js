@@ -1,20 +1,19 @@
-import Head from "next/head";
-import { useSelector } from "react-redux";
-import { ItemsProvider } from "context/ItemsContext";
-import { FormHeaderProvider } from "context/FormHeaderContext";
-import Form from "components/Form";
-import AsideForm from "components/AsideForm";
-import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import Head from "next/head";
+import { ItemsProvider } from "context/ItemsContext";
+import { FormHeaderProvider } from "context/FormHeaderContext";
+import Form from "components/form/Form";
+import AsideForm from "components/form/AsideForm";
+import styles from "../styles/Home.module.css";
 
 const FormContainer = () => {
-
   const router = useRouter();
-  const { auth } = useSelector(state => state.auth);
+  const { auth } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if(!auth){
+    if (!auth) {
       router.push("/login");
     }
   });

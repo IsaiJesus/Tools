@@ -25,7 +25,7 @@ export default function Tool({ tool, error }) {
             {topics.filter((topic) => tool.titleTool === topic.category)
               .length === 0 ? (
               <div className={styles.toolNotFound}>
-                <h5>¡No existe contenido de esa herramienta aún!</h5>
+                <h5>¡No existe contenido de esta herramienta aún!</h5>
               </div>
             ) : (
               orderedTopics

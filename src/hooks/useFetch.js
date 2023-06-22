@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useFetch = () => {
   const [topics, setTopics] = useState([]);
@@ -13,7 +13,7 @@ const useFetch = () => {
     getData();
   }, []);
 
-  return { topics }
-}
+  return { topics };
+};
 
 export default useFetch;

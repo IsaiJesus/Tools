@@ -1,5 +1,5 @@
-import styles from "../styles/Home.module.css";
 import { FaGithub, FaInstagram, FaTwitter, FaEnvelope } from "react-icons/fa";
+import styles from "../../styles/Home.module.css";
 
 const Footer = () => {
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
           <FaEnvelope />
         </a>
       </div>
-      <h3>Hecho por Isai Jesus</h3>
+      <h3>Hecho por Isai Jesús</h3>
     </footer>
   );
 };

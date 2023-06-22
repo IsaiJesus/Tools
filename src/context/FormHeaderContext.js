@@ -1,35 +1,35 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const FormHeaderContext = createContext();
 
 const initialState = {
   title: "",
   description: "",
-  imageTool: "",  //window.localStorage.getItem("imageTool")
-  categoryTopic: ""
-}
+  imageTool: "",
+  categoryTopic: "",
+};
 
-const FormHeaderProvider = ({children}) => {
-  
+const FormHeaderProvider = ({ children }) => {
   const [formHeader, setFormHeader] = useState(initialState);
 
-  const handleChange = ({ target: { name, value }}) => {
+  const handleChange = ({ target: { name, value } }) => {
     setFormHeader({ ...formHeader, [name]: value });
-    /*if(name === "imageTool") {
-      window.localStorage.setItem("task", value);
-    }*/
-  }
+  };
 
   return (
-    <FormHeaderContext.Provider value={{
-      formHeader,
-      initialState,
-      setFormHeader,
-      handleChange
-    }}>{children}</FormHeaderContext.Provider>
-  )
-}
+    <FormHeaderContext.Provider
+      value={{
+        formHeader,
+        initialState,
+        setFormHeader,
+        handleChange,
+      }}
+    >
+      {children}
+    </FormHeaderContext.Provider>
+  );
+};
 
-export {FormHeaderProvider}
+export { FormHeaderProvider };
 
 export default FormHeaderContext;

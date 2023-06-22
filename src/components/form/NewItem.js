@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import styles from "../styles/Home.module.css";
 import ItemsContext from "context/ItemsContext";
-import Warning from "./Warning";
+import Warning from "../Warning";
+import toast, { Toaster } from "react-hot-toast";
+import styles from "../../styles/Home.module.css";
 
 export default function NewItem(props) {
   const { addItem, editActive } = props;
@@ -65,7 +65,7 @@ export default function NewItem(props) {
         {addItem === "subtitle" ? (
           <textarea
             name="subtitle"
-            value={item.content}
+            value={item.content ? item.content : ""}
             className={styles.formInputs}
             onChange={handleChange}
             placeholder="Introduce un subtítulo"
@@ -75,26 +75,29 @@ export default function NewItem(props) {
           <textarea
             name="text"
             className={styles.formInputs}
+            value={item.content ? item.content : ""}
             onChange={handleChange}
             placeholder="Introduce un texto o párrafo"
             autoComplete="off"
           ></textarea>
-        ) : addItem === "link" ? (
+        ) : addItem === "url" ? (
           <>
             <input
               type="text"
-              name="textLink"
+              name="textUrl"
               className={styles.formInputs}
+              value={item.content.textUrl ? item.content.textUrl : ""}
               onChange={handleChange}
-              placeholder="Introduce el texto del link"
+              placeholder="Introduce el texto de la URL"
               autoComplete="off"
             />
             <input
-              type="text"
-              name="link"
+              type="url"
+              name="url"
               className={styles.formInputs}
+              value={item.content.url ? item.content.url : ""}
               onChange={handleChange}
-              placeholder="Introduce el link"
+              placeholder="Introduce la URL"
               autoComplete="off"
             />
           </>
@@ -104,6 +107,7 @@ export default function NewItem(props) {
               type="text"
               name="language"
               className={styles.formInputs}
+              value={item.content.language ? item.content.language : ""}
               onChange={handleChange}
               placeholder="Introduce el lenguaje del código"
               autoComplete="off"
@@ -111,6 +115,7 @@ export default function NewItem(props) {
             <textarea
               name="code"
               className={styles.formInputs}
+              value={item.content.code ? item.content.code : ""}
               onChange={handleChange}
               placeholder="Introduce tu código"
               autoComplete="off"
@@ -121,6 +126,7 @@ export default function NewItem(props) {
             name="image"
             type="text"
             className={styles.formInputs}
+            value={item.content ? item.content : ""}
             onChange={handleChange}
             placeholder="Introduce el link de tu imagen"
             autoComplete="off"

@@ -15,7 +15,6 @@ export default function LanguageHeadingContainer({code, language}) {
   return (
     <div className={styles.topCode}>
       <p>{language.toUpperCase()}</p>
-
       <CopyToClipboard text={code}>
         <button onClick={copyAlert}>{copied ? "¡Copiado!" : "Copiar"}</button>
       </CopyToClipboard>

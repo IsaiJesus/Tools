@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
 import FormattedDate from "helpers/FormattedDate";
+import styles from "../styles/Home.module.css";
 
 export default function TopicBox({_id, titleTopic, descriptionTopic, updatedAt}) {
   const formattedDate = FormattedDate(updatedAt);

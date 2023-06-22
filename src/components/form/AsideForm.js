@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import FormHeaderContext from "context/FormHeaderContext";
 import ItemsContext from "context/ItemsContext";
-import styles from "../styles/Home.module.css";
-import Subtitle from "./itemsAside/Subtitle";
-import Text from "./itemsAside/Text";
-import Code from "./Code";
-import ImageContent from "./itemsAside/ImageContent";
-import Link from "./itemsAside/Link";
-import EditDeleteButtons from "./EditDeleteButtons";
+import Subtitle from "../Subtitle";
+import Text from "../Text";
+import Code from "../Code";
+import ImageTopic from "../ImageTopic";
+import Url from "../Url";
 import NewItem from "./NewItem";
+import EditDeleteButtons from "./EditDeleteButtons";
+import styles from "../../styles/Home.module.css";
 
 export default function AsideForm() {
   const { formHeader } = useContext(FormHeaderContext);
@@ -55,16 +55,15 @@ export default function AsideForm() {
                       <div key={index}>
                         <div className={styles.containerItem}>
                           <Subtitle subtitle={item.content} />
-                          <EditDeleteButtons
-                            index={index}
-                          />
+                          <EditDeleteButtons index={index} />
                         </div>
-                        {editActive.text === "subtitle" && editActive.index === index && (
-                          <NewItem
-                            addItem={editActive.text}
-                            editActive={editActive}
-                          />
-                        )}
+                        {editActive.text === "subtitle" &&
+                          editActive.index === index && (
+                            <NewItem
+                              addItem={editActive.text}
+                              editActive={editActive}
+                            />
+                          )}
                       </div>
                     );
                   case "text":
@@ -72,67 +71,66 @@ export default function AsideForm() {
                       <div key={index}>
                         <div className={styles.containerItem}>
                           <Text text={item.content} />
-                          <EditDeleteButtons
-                            index={index}
-                          />
+                          <EditDeleteButtons index={index} />
                         </div>
-                        {editActive.text === "text" && editActive.index === index && (
-                          <NewItem
-                            addItem={editActive.text}
-                            editActive={editActive}
-                          />
-                        )}
+                        {editActive.text === "text" &&
+                          editActive.index === index && (
+                            <NewItem
+                              addItem={editActive.text}
+                              editActive={editActive}
+                            />
+                          )}
                       </div>
                     );
                   case "code":
                     return (
                       <div key={index}>
                         <div className={styles.containerItem}>
-                          <Code {...item.content} aside={true}/>
-                          <EditDeleteButtons
-                            index={index}
-                          />
+                          <Code {...item.content} aside={true} />
+                          <EditDeleteButtons index={index} />
                         </div>
-                        {editActive.text === "code" && editActive.index === index && (
-                          <NewItem
-                            addItem={editActive.text}
-                            editActive={editActive}
-                          />
-                        )}
+                        {editActive.text === "code" &&
+                          editActive.index === index && (
+                            <NewItem
+                              addItem={editActive.text}
+                              editActive={editActive}
+                            />
+                          )}
                       </div>
                     );
                   case "image":
                     return (
                       <div key={index}>
                         <div className={styles.containerItem}>
-                          <ImageContent image={item.content} />
-                          <EditDeleteButtons
-                            index={index}
+                          <ImageTopic
+                            image={item.content}
+                            alt={formHeader.title}
                           />
+                          <EditDeleteButtons index={index} />
                         </div>
-                        {editActive.text === "image" && editActive.index === index && (
-                          <NewItem
-                            addItem={editActive.text}
-                            editActive={editActive}
-                          />
-                        )}
+                        {editActive.text === "image" &&
+                          editActive.index === index && (
+                            <NewItem
+                              addItem={editActive.text}
+                              editActive={editActive}
+                            />
+                          )}
                       </div>
                     );
-                  case "link":
+                  case "url":
                     return (
                       <div key={index}>
                         <div className={styles.containerItem}>
-                          <Link {...item.content} />
-                          <EditDeleteButtons
-                            index={index}
-                          />
+                          <Url {...item.content} />
+                          <EditDeleteButtons index={index} />
                         </div>
-                        {editActive.text === "link" && editActive.index === index && (
-                          <NewItem
-                            addItem={editActive.text}
-                            editActive={editActive}
-                          />
-                        )}
+                        {editActive.text === "url" &&
+                          editActive.index === index && (
+                            <NewItem
+                              addItem={editActive.text}
+                              editActive={editActive}
+                            />
+                          )}
                       </div>
                     );
                 }

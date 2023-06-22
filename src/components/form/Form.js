@@ -1,17 +1,16 @@
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
-import toast, { Toaster } from "react-hot-toast";
-import styles from "../styles/Home.module.css";
 import FormHeaderContext from "context/FormHeaderContext";
-import ItemsContext from "context/ItemsContext";
 import FormHeader from "./FormHeader";
+import ItemsContext from "context/ItemsContext";
 import NewItem from "./NewItem";
-import { HiX } from "react-icons/hi";
+import FormModal from "./FormModal";
+import toast, { Toaster } from "react-hot-toast";
+import styles from "../../styles/Home.module.css";
 
 export default function Form() {
   const router = useRouter();
-  const { formHeader, setFormHeader, initialState } =
-    useContext(FormHeaderContext);
+  const { formHeader, setFormHeader, initialState } = useContext(FormHeaderContext);
   const {
     items,
     setItem,
@@ -155,7 +154,7 @@ export default function Form() {
             <option>Añade un nuevo elemento</option>
             <option value="subtitle">Subtítulo</option>
             <option value="text">Texto/párrafo</option>
-            <option value="link">Link</option>
+            <option value="url">URL</option>
             <option value="code">Código</option>
             <option value="image">Imagen</option>
           </select>
@@ -165,31 +164,7 @@ export default function Form() {
         )}
         <button className={styles.formSubmit}>Subir</button>
       </form>
-      <div
-        onClick={() => setModal(false)}
-        className={modal ? styles.containerModal : styles.closeContainerModal}
-      >
-        <div className={styles.modal}>
-          <button className={styles.closeModal}>
-            <HiX />
-          </button>
-          <p>
-            ¿Estás seguro de que has revisado todo el contenido y estás listo
-            para publicarlo?
-          </p>
-          <div>
-            <button onClick={handleSubmit} className={styles.modalButtons}>
-              Subir
-            </button>
-            <button
-              onClick={() => setModal(false)}
-              className={styles.modalButtons}
-            >
-              Cancelar
-            </button>
-          </div>
-        </div>
-      </div>
+      <FormModal setModal={setModal} modal={modal} handleSubmit={handleSubmit}/>
       <Toaster
         toastOptions={{
           duration: 2500,

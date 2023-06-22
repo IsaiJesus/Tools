@@ -1,8 +1,8 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import Prism from "prism-react-renderer/prism";
+import LanguageHeadingContainer from "./LanguageHeadingContainer";
 import theme from "prism-react-renderer/themes/vsDark";
 import styles from "../styles/Home.module.css";
-import LanguageHeadingContainer from "./LanguageHeadingContainer";
 //vsDark
 //nightOwl
 

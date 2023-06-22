@@ -1,6 +1,6 @@
-import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import useFetch from "hooks/useFetch";
 import SearchContext from "context/SearchContext";
 import TopicBox from "components/TopicBox";
@@ -36,7 +36,9 @@ function Search() {
         </div>
         <div className={styles.topicsContainer}>
           {filteredTopics.length === 0 || search === "" ? (
-            <h1 className={styles.notFound}>¡No se han encontrado resultados!</h1>
+            <h1 className={styles.notFound}>
+              ¡No se han encontrado resultados!
+            </h1>
           ) : (
             filteredTopics.map((topic) => (
               <TopicBox key={topic._id} {...topic} />

@@ -1,7 +1,7 @@
-import Error from "next/error";
 import Head from "next/head";
+import Error from "next/error";
 import Code from "../../../components/Code";
-import Link from "../../../components/Link";
+import Url from "../../../components/Url";
 import ImageTopic from "../../../components/ImageTopic";
 import Subtitle from "../../../components/Subtitle";
 import Text from "../../../components/Text";
@@ -9,6 +9,7 @@ import styles from "../../../styles/Home.module.css";
 
 export default function Topic({ topic, error }) {
   const content = topic.content;
+  console.log(topic)
 
   if (error && error.statusCode)
     return <Error statusCode={error.statusCode} title={error.statusText} />;
@@ -29,15 +30,20 @@ export default function Topic({ topic, error }) {
               content.map((content, index) => {
                 switch(content.type){
                   case "subtitle":
-                    return <Subtitle key={index} subtitle={content.content}/>
+                    return <Subtitle key={index} subtitle={content.content} compFrom={"topic"}/>
                   case "text":
-                    return <Text key={index} text={content.content}/>
-                  case "link":
-                    return <Link key={index} {...content.content}/>
+                    return <Text key={index} text={content.content} compFrom={"topic"}/>
+                  case "url":
+                    return <Url key={index} {...content.content} compFrom={"topic"}/>
                   case "code":
-                    return <Code key={index} {...content.content}/>
+                    return <Code key={index} {...content.content} compFrom={"topic"}/>
                   case "image":
-                    return <ImageTopic key={index} image={content.content}/>
+                    return <ImageTopic 
+                      key={index} 
+                      image={content.content} 
+                      alt={topic.titleTopic} 
+                      compFrom={"topic"}
+                    />
                 }
               })
             }

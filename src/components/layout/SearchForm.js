@@ -1,16 +1,14 @@
 import { useContext, useRef, useState } from "react";
-import SearchContext from "../context/SearchContext";
 import { useRouter } from "next/router";
-import styles from "../styles/Home.module.css";
-import { BiSearch } from "react-icons/bi";
 import useFetch from "hooks/useFetch";
+import SearchContext from "../../context/SearchContext";
+import { BiSearch } from "react-icons/bi";
+import styles from "../../styles/Home.module.css";
 
 const SearchForm = () => {
   const [change, setChange] = useState("");
   const { setSearch } = useContext(SearchContext);
-
   const { topics } = useFetch();
-
   const router = useRouter();
   const inputRef = useRef(null);
 
@@ -40,7 +38,12 @@ const SearchForm = () => {
           <BiSearch size="20px" />
         </button>
       </form>
-      <ul className={filteredTopics.length === 0 || change === "" ? styles.containerSearchListOff : styles.containerSearchList}>
+      <ul className={
+        filteredTopics.length === 0 || 
+        change === "" ? 
+          styles.containerSearchListOff : 
+          styles.containerSearchList
+      }>
         {filteredTopics.map((topic) => (
           <li key={topic._id}>
             <a href={`http://localhost:3000/topics/${topic._id}`}>

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import ItemsContext from "context/ItemsContext";
 import { FaPen, FaTrashAlt } from "react-icons/fa";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 export default function EditDeleteButtons({ index }) {
   const { items, setItems, setEditActive, setAddItem } = useContext(ItemsContext);

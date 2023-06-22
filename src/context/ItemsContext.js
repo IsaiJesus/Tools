@@ -25,9 +25,9 @@ const ItemsProvider = ({ children }) => {
   const handleChange = ({ target: { name, value } }) => {
     const typeName = name;
     //Cases when the content is an object
-    if (name === "link" || name === "code" || name === "textLink" || name === "language") {
-      if(name === "textLink"){
-        typeName = "link";
+    if (name === "url" || name === "textUrl" || name === "code" || name === "language") {
+      if(name === "textUrl"){
+        typeName = "url";
       }
       if(name === "language"){
         typeName = "code";

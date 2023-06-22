@@ -1,9 +1,8 @@
-import Head from 'next/head'
-import Tools from '../components/Tools'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Tools from "../components/Tools";
+import styles from "../styles/Home.module.css";
 
-export default function Home({tools}) {
-
+export default function Home({ tools }) {
   return (
     <>
       <Head>
@@ -14,25 +13,22 @@ export default function Home({tools}) {
 
       <div className={styles.containerMain}>
         <main className={styles.containerContent}>
-          {
-            tools.map(tool => (
-              <Tools key={tool._id} {...tool}/>
-            ))
-          }
+          {tools.map((tool) => (
+            <Tools key={tool._id} {...tool} />
+          ))}
         </main>
       </div>
     </>
-  )
+  );
 }
 
-export const getServerSideProps = async(ctx) => {
-  
-  const res = await fetch('http://localhost:3000/api/tools');
+export const getServerSideProps = async (ctx) => {
+  const res = await fetch("http://localhost:3000/api/tools");
   const tools = await res.json();
-  
+
   return {
     props: {
       tools,
-    }
-  }
-}
+    },
+  };
+};

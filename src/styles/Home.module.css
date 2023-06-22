@@ -262,6 +262,7 @@
 }
 
 .footerContainer h3{
+  text-align: center;
   width: 95%;
   padding: 18px 0px;
   margin: 10px;
@@ -470,14 +471,14 @@
   font-size: 17px;
 }
 
-.link{
+.url{
   margin: 10px 0 12px 0;
   font-size: 17px;
   color: #0081d7;
   width: fit-content;
 }
 
-.link:hover{
+.url:hover{
   color: #0000FE;
 }
 
@@ -502,6 +503,10 @@
   font-size: 15px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.code div{
+  width:fit-content;
 }
 
 .topCode{
@@ -570,7 +575,7 @@
 
 .containerForm form textarea{
   min-height: 60px;
-  max-height: 100px;
+  max-height: 120px;
   min-width: calc(400px - 36px);
   max-width: calc(400px - 36px);
 }
@@ -743,13 +748,13 @@
   font-size: 16px;
 }
 
-.linkItem{
+.urlItem{
   margin: 0;
   font-size: 16px;
   color: #0081d7;
 }
 
-.linkItem:hover{
+.urlItem:hover{
   color: #0000FE;
 }
 

@@ -1,8 +1,8 @@
-import { store } from "../store";
+import { store } from "../../store";
 import { Provider } from "react-redux";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
-import styles from "../styles/Home.module.css";
+import Footer from "./Footer";
+import styles from "../../styles/Home.module.css";
 
 const Layout = ({ children }) => {
   return (

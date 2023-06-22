@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "../styles/Home.module.css";
 import FormHeaderContext from "context/FormHeaderContext";
-import Warning from "./Warning";
+import Warning from "../Warning";
+import styles from "../../styles/Home.module.css";
 
 export default function FormHeader({ whatToAdd, formHeader }) {
   const { handleChange } = useContext(FormHeaderContext);

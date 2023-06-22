@@ -1,13 +1,12 @@
-import Head from "next/head";
-import { useDispatch } from "react-redux";
-import { logged } from "store/slices/auth";
-import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import Head from "next/head";
+import { logged } from "store/slices/auth";
 import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
-
   const dispatch = useDispatch();
 
   const [change, setChange] = useState("");
