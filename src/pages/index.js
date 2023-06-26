@@ -23,7 +23,7 @@ export default function Home({ tools }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/tools");
+  const res = await fetch("https://isai-tools.netlify.app/api/tools");
   const tools = await res.json();
 
   return {

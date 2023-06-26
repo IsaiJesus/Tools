@@ -106,7 +106,7 @@ export default function Form() {
 
   const uploadTool = async () => {
     try {
-      await fetch("http://localhost:3000/api/tools", {
+      await fetch("https://isai-tools.netlify.app/api/tools", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export default function Form() {
 
   const uploadTopic = async () => {
     try {
-      await fetch("http://localhost:3000/api/topics", {
+      await fetch("https://isai-tools.netlify.app/api/topics", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

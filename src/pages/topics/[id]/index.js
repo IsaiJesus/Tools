@@ -40,7 +40,7 @@ export default function Topic({ topic, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`http://localhost:3000/api/topics/${id}`);
+  const res = await fetch(`https://isai-tools.netlify.app/api/topics/${id}`);
   if (res.status === 200) {
     const topic = await res.json();
     return {
