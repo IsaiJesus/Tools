@@ -13,7 +13,6 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        //console.log(query)
         const topic = await Topics.findOne({ slug });
         if (!topic) return res.status(404).json({ msg: "Topic not found" });
         return res.status(200).json(topic);

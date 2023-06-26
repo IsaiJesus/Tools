@@ -1,10 +1,6 @@
 import Head from "next/head";
 import Error from "next/error";
-import Code from "../../../components/Code";
-import Url from "../../../components/Url";
-import ImageTopic from "../../../components/ImageTopic";
-import Subtitle from "../../../components/Subtitle";
-import Text from "../../../components/Text";
+import Component from "Interface/Component";
 import styles from "../../../styles/Home.module.css";
 
 export default function Topic({ topic, error }) {
@@ -12,6 +8,8 @@ export default function Topic({ topic, error }) {
   return <Error statusCode={error.statusCode} title={error.statusText} />;
   
   const content = topic.content;
+
+  const component = Component;
 
   return (
     <main className={styles.containerMain}>
@@ -27,23 +25,11 @@ export default function Topic({ topic, error }) {
           <div className={styles.topicContent}>
             {
               content.map((content, index) => {
-                switch(content.type){
-                  case "subtitle":
-                    return <Subtitle key={index} subtitle={content.content} compFrom={"topic"}/>
-                  case "text":
-                    return <Text key={index} text={content.content} compFrom={"topic"}/>
-                  case "url":
-                    return <Url key={index} {...content.content} compFrom={"topic"}/>
-                  case "code":
-                    return <Code key={index} {...content.content} compFrom={"topic"}/>
-                  case "image":
-                    return <ImageTopic 
-                      key={index} 
-                      image={content.content} 
-                      alt={topic.titleTopic} 
-                      compFrom={"topic"}
-                    />
-                }
+                const Component = component[content.type];
+
+                return content.type == "image" 
+                  ? <Component key={index} {...content} alt={topic.titleTopic} compFrom={"topic"}/>
+                  : <Component key={index} {...content} compFrom={"topic"}/>
               })
             }
           </div>
