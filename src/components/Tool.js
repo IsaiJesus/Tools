@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-const Tools = ({ _id, imageTool, titleTool, descriptionTool }) => {
+const Tool = ({ slug, imageTool, titleTool, descriptionTool }) => {
   return (
-    <Link href={`/tools/${_id}`}>
+    <Link href={`/tools/${slug}`}>
       <a className={styles.tool}>
         <img src={imageTool} alt={titleTool} height={60} width={60} />
         <div className={styles.toolText}>
@@ -15,4 +15,4 @@ const Tools = ({ _id, imageTool, titleTool, descriptionTool }) => {
   );
 };
 
-export default Tools;
+export default Tool;

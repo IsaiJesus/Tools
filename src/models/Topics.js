@@ -8,6 +8,12 @@ const topicsSchema = new Schema(
       trim: true,
       maxLength: [100, "El título debe tener menos de 100 caracteres"],
     },
+    slug: {
+      type: String,
+      required: [true, "La extensión es requerida"],
+      trim: true,
+      maxLength: [100, "La extensión debe tener menos de 100 caracteres"],
+    },
     descriptionTopic: {
       type: String,
       required: true,

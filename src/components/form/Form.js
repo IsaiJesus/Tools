@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import FormHeaderContext from "context/FormHeaderContext";
+import GenerateSlug from "helpers/GenerateSlug";
 import FormHeader from "./FormHeader";
 import ItemsContext from "context/ItemsContext";
 import NewItem from "./NewItem";
@@ -34,6 +35,7 @@ export default function Form() {
     setFormHeader(initialState);
     setEditActive(initialStateEdit);
   };
+
   const handleAddItem = (e) => {
     setAddItem(e.target.value);
     setItem({
@@ -52,6 +54,7 @@ export default function Form() {
       if (formHeader.imageTool !== "" && formHeader.categoryTopic === "") {
         setToolToUpload({
           titleTool: formHeader.title,
+          slug: GenerateSlug(formHeader.title),
           descriptionTool: formHeader.description,
           imageTool: formHeader.imageTool,
         });
@@ -69,6 +72,7 @@ export default function Form() {
         } else {
           setTopicToUpload({
             titleTopic: formHeader.title,
+            slug: GenerateSlug(formHeader.title),
             descriptionTopic: formHeader.description,
             category: formHeader.categoryTopic,
             content: items,

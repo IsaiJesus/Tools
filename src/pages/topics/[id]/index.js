@@ -8,11 +8,10 @@ import Text from "../../../components/Text";
 import styles from "../../../styles/Home.module.css";
 
 export default function Topic({ topic, error }) {
-  const content = topic.content;
-  console.log(topic)
-
   if (error && error.statusCode)
-    return <Error statusCode={error.statusCode} title={error.statusText} />;
+  return <Error statusCode={error.statusCode} title={error.statusText} />;
+  
+  const content = topic.content;
 
   return (
     <main className={styles.containerMain}>

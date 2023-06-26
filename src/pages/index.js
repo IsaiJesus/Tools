@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Tools from "../components/Tools";
+import Tool from "../components/Tool";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ tools }) {
@@ -14,7 +14,7 @@ export default function Home({ tools }) {
       <div className={styles.containerMain}>
         <main className={styles.containerContent}>
           {tools.map((tool) => (
-            <Tools key={tool._id} {...tool} />
+            <Tool key={tool._id} {...tool} />
           ))}
         </main>
       </div>
@@ -22,7 +22,7 @@ export default function Home({ tools }) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async () => {
   const res = await fetch("http://localhost:3000/api/tools");
   const tools = await res.json();
 

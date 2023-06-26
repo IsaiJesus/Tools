@@ -21,7 +21,7 @@ export default function NewItem(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const regex = /\.(jpe?g|png|svg)$/i;
+    const regex = /\.(jpe?g|png|svg|webp)$/i;
     if (item.type === "" || item.content === "") {
       toast.error("¡Añade contenido al item!");
     } else {

@@ -4,6 +4,7 @@ const FormHeaderContext = createContext();
 
 const initialState = {
   title: "",
+  slug: "",
   description: "",
   imageTool: "",
   categoryTopic: "",

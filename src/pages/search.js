@@ -1,41 +1,34 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import useFetch from "hooks/useFetch";
-import SearchContext from "context/SearchContext";
+import Filter from "helpers/Filter";
 import TopicBox from "components/TopicBox";
 import styles from "../styles/Home.module.css";
 
-function Search() {
-  const { search } = useContext(SearchContext);
-  const { topics } = useFetch();
+function Search({ topics }) {
   const router = useRouter();
+  const query = router.query.query;
 
   useEffect(() => {
-    if (search === "") {
+    if (query === "") {
       router.back();
     }
-  }, [router, search]);
+  }, [query, router]);
 
-  const filteredTopics = topics.filter((topics) => {
-    return (
-      topics.titleTopic.toLowerCase().includes(search.toLowerCase()) ||
-      topics.category.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  const filteredTopics = Filter(topics, query);
 
   return (
     <div className={styles.toolContainer}>
       <Head>
-        <title>Search results: {search}</title>
+        <title>Resultados de la búsqueda: {query}</title>
       </Head>
       <div className={styles.toolBox}>
         <div className={styles.searchHeader}>
           <h1>Resultados de la búsqueda:</h1>
-          <p>{search}</p>
+          <p>{query}</p>
         </div>
         <div className={styles.topicsContainer}>
-          {filteredTopics.length === 0 || search === "" ? (
+          {filteredTopics.length === 0 || query === "" ? (
             <h1 className={styles.notFound}>
               ¡No se han encontrado resultados!
             </h1>
@@ -51,3 +44,14 @@ function Search() {
 }
 
 export default Search;
+
+export const getServerSideProps = async () => {
+  const res = await fetch("http://localhost:3000/api/topics");
+  const topics = await res.json();
+
+  return {
+    props: {
+      topics,
+    },
+  };
+};

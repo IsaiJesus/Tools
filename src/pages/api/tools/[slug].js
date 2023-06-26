@@ -7,13 +7,13 @@ export default async function handler(req, res) {
   const {
     method,
     body,
-    query: { id },
+    query: { slug },
   } = req;
 
   switch (method) {
     case "GET":
       try {
-        const tool = await Tools.findById(id);
+        const tool = await Tools.findOne({slug});
         if (!tool) return res.status(404).json({ msg: "Tool not found" });
         return res.status(200).json(tool);
       } catch (error) {
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
     case "PUT":
       try {
-        const toolUpdate = await Tools.findByIdAndUpdate(id, body, {
+        const toolUpdate = await Tools.findOneAndUpdate({slug}, body, {
           new: true
         })
         if(!toolUpdate) return res.status(404).json({msg: "Tool not found"})
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 
     case "DELETE":
       try {
-        const deletedTool = await Tools.findByIdAndDelete(id)
+        const deletedTool = await Tools.findOneAndDelete({slug})
         if(!deletedTool) return res.status(400).json({msg: "Tool not found"})
         return res.status(200).json(deletedTool)
       } catch (error) {
