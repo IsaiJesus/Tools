@@ -5,6 +5,7 @@ import OrderedTopics from '../../../helpers/GetOrderedTopics';
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
 import styles from "../../../styles/Home.module.css";
+import NotFound from "components/NotFound";
 
 export default function Tool({ tool, error }) {
   const { topics } = useFetch();
@@ -24,9 +25,7 @@ export default function Tool({ tool, error }) {
           <div className={styles.topicsContainer}>
             {topics.filter((topic) => tool.titleTool === topic.category)
               .length === 0 ? (
-              <div className={styles.toolNotFound}>
-                <h5>¡No existe contenido de esta herramienta aún!</h5>
-              </div>
+              <NotFound/>
             ) : (
               orderedTopics
                 .filter((topic) => tool.titleTool === topic.category)
