@@ -54,7 +54,7 @@ const SearchForm = () => {
       >
         {filteredTopics.map((topic) => (
           <li key={topic._id}>
-            <a href={`https://your-tools.netlify.app/topics${topic._id}`}>
+            <a href={`https://your-tools.vercel.app/api/topics/${topic._id}`}>
               {topic.titleTopic}
             </a>
           </li>
