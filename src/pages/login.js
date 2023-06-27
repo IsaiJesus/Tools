@@ -30,7 +30,7 @@ const Login = () => {
 
   const getPassword = async () => {
     try {
-      const res = await fetch("https://isai-tools.netlify.app/api/password");
+      const res = await fetch("https://your-tools.netlify.app/api/passwords");
       const data = await res.json();
       setPassword(data[0].password);
     } catch (error) {

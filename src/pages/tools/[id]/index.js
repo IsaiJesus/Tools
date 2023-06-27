@@ -39,7 +39,7 @@ export default function Tool({ tool, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`https://isai-tools.netlify.app/api/tools/${id}`);
+  const res = await fetch(`https://your-tools.netlify.app/api/tools/${id}`);
   if (res.status === 200) {
     const tool = await res.json();
     return {
