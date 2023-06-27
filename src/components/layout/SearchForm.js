@@ -6,9 +6,10 @@ import { BiSearch } from "react-icons/bi";
 import styles from "../../styles/Home.module.css";
 
 const SearchForm = () => {
+  const url = "http://localhost:3000/api/topics";
   const [change, setChange] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  const { topics } = useFetch();
+  const { topics } = useFetch(url);
   const router = useRouter();
   const inputRef = useRef(null);
 

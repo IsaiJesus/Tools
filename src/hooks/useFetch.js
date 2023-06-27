@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-const useFetch = () => {
+const useFetch = (url) => {
   const [topics, setTopics] = useState([]);
 
   const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/topics");
+    const res = await fetch(url);
     const data = await res.json();
     setTopics(data);
   };

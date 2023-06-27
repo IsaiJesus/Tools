@@ -1,14 +1,27 @@
 import Head from "next/head";
 import Error from "next/error";
-import useFetch from "hooks/useFetch";
-import OrderedTopics from '../../../helpers/GetOrderedTopics';
+import { useEffect, useState } from "react";
+import OrderedTopics from "../../../helpers/GetOrderedTopics";
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
-import styles from "../../../styles/Home.module.css";
+import Loader from "components/Loader";
 import NotFound from "components/NotFound";
+import styles from "../../../styles/Home.module.css";
 
 export default function Tool({ tool, error }) {
-  const { topics } = useFetch();
+  const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getData = async () => {
+    const res = await fetch("http://localhost:3000/api/topics");
+    const data = await res.json();
+    setIsLoading(false);
+    setTopics(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   const orderedTopics = OrderedTopics(topics);
 
   if (error && error.statusCode)
@@ -23,9 +36,11 @@ export default function Tool({ tool, error }) {
         <div className={styles.toolBox}>
           <ToolHeader {...tool} />
           <div className={styles.topicsContainer}>
-            {topics.filter((topic) => tool.titleTool === topic.category)
-              .length === 0 ? (
-              <NotFound/>
+            {isLoading ? (
+              <Loader />
+            ) : topics.filter((topic) => tool.titleTool === topic.category)
+                .length === 0 ? (
+              <NotFound />
             ) : (
               orderedTopics
                 .filter((topic) => tool.titleTool === topic.category)
