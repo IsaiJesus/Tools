@@ -46,7 +46,7 @@ function Search({ topics }) {
 export default Search;
 
 export const getServerSideProps = async () => {
-  const res = await fetch("https://your-tools.netlify.app/api/topics");
+  const res = await fetch("http://localhost:3000/api/topics");
   const topics = await res.json();
 
   return {

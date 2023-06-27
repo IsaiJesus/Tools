@@ -23,7 +23,7 @@ const ItemsProvider = ({ children }) => {
   const [editActive, setEditActive] = useState(initialStateEdit);
 
   const handleChange = ({ target: { name, value } }) => {
-    const typeName = name;
+    let typeName = name;
     //Cases when the content is an object
     if (name === "url" || name === "textUrl" || name === "code" || name === "language") {
       if(name === "textUrl"){

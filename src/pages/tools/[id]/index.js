@@ -17,7 +17,7 @@ export default function Tool({ tool, error }) {
   return (
     <main className={styles.containerMain}>
       <Head>
-        <title>{`${tool.titleTool} - Tools`}</title>
+        <title>{tool.titleTool} - Tools</title>
       </Head>
       <div className={styles.toolContainer}>
         <div className={styles.toolBox}>
@@ -39,7 +39,7 @@ export default function Tool({ tool, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`https://your-tools.netlify.app/api/tools/${id}`);
+  const res = await fetch(`http://localhost:3000/api/tools/${id}`);
   if (res.status === 200) {
     const tool = await res.json();
     return {
