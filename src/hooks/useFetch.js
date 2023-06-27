@@ -4,7 +4,7 @@ const useFetch = () => {
   const [topics, setTopics] = useState([]);
 
   const getData = async () => {
-    const res = await fetch("https://your-tools.vercel.app/api/topics");
+    const res = await fetch("https://your-tools.netlify.app/api/topics");
     const data = await res.json();
     setTopics(data);
   };

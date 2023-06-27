@@ -40,7 +40,7 @@ export default function Topic({ topic, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`https://your-tools.vercel.app/api/topics/${id}`);
+  const res = await fetch(`https://your-tools.netlify.app/api/topics/${id}`);
   if (res.status === 200) {
     const topic = await res.json();
     return {

@@ -11,7 +11,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
     //const res = await fetch("http://localhost:3000/api/tools");
     //const data = await res.json();
     //setCategories(data);
-    fetch('https://your-tools.vercel.app/api/tools')
+    fetch('https://your-tools.netlify.app/api/tools')
       .then(res => res.json())
       .then(data => {
         setCategories(data.map(category => category.titleTool));
