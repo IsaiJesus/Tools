@@ -22,7 +22,7 @@ export default function Home({ tools }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (ctx) => {
   const res = await fetch("https://your-tools.netlify.app/api/tools");
   const tools = await res.json();
 
