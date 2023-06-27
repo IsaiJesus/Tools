@@ -45,7 +45,7 @@ function Search({ topics }) {
 
 export default Search;
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async () => {
   const res = await fetch("https://your-tools.netlify.app/api/topics");
   const topics = await res.json();
 
