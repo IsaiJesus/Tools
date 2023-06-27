@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
-
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  webpack: (config, { webpack }) => {
-    config.plugins.push(new webpack.EnvironmentPlugin(process.env));
-    return config;
-  },
-};
+}
+
+module.exports = nextConfig
