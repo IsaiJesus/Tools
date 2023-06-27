@@ -6,7 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import styles from "../../styles/Home.module.css";
 
 const SearchForm = () => {
-  const url = "http://localhost:3000/api/topics";
+  const url = "https://your-tools.netlify.app/api/topics";
   const [change, setChange] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const { topics } = useFetch(url);
@@ -55,7 +55,7 @@ const SearchForm = () => {
       >
         {filteredTopics.map((topic) => (
           <li key={topic._id}>
-            <a href={`http://localhost:3000/api/topics/${topic._id}`}>
+            <a href={`https://your-tools.netlify.app/api/topics/${topic._id}`}>
               {topic.titleTopic}
             </a>
           </li>
