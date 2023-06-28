@@ -7,8 +7,10 @@ const Navbar = () => {
   return (
     <nav className={styles.containerNav}>
       <Link href="/">
-        <Image src="/img/tools.png" alt="Tools" width={70} height={70} />
-        <h1 className={styles.letterLogo}>Tools</h1>
+        <a>
+          <Image src="/img/tools.png" alt="Tools" width={70} height={70} />
+          <h1 className={styles.letterLogo}>Tools</h1>
+        </a>
       </Link>
       <SearchForm />
       <a href="https://isaijesus.netlify.app/" target="_blank" rel="noreferrer">

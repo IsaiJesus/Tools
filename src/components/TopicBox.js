@@ -11,10 +11,12 @@ export default function TopicBox({
   const formattedDate = FormattedDate(updatedAt);
 
   return (
-    <Link href={`/topics/${slug}`} className={styles.topicBox}>
-      <h4>{titleTopic}</h4>
-      <p className={styles.descriptionOfTopic}>{descriptionTopic}</p>
-      <p className={styles.dateOfTopic}>{formattedDate}</p>
+    <Link href={`/topics/${slug}`}>
+      <a className={styles.topicBox}>
+        <h4>{titleTopic}</h4>
+        <p className={styles.descriptionOfTopic}>{descriptionTopic}</p>
+        <p className={styles.dateOfTopic}>{formattedDate}</p>
+      </a>
     </Link>
   );
 }
