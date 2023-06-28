@@ -8,7 +8,6 @@ export default function Home({ tools }) {
       <Head>
         <title>Tools</title>
         <meta name="description" content="Tools by Isai Jesus" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className={styles.containerMain}>
