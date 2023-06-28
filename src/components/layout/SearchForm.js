@@ -4,22 +4,15 @@ import useFetch from "hooks/useFetch";
 import Filter from "helpers/Filter";
 import { BiSearch } from "react-icons/bi";
 import styles from "../../styles/Home.module.css";
+import Link from "next/link";
 
 const SearchForm = () => {
   const url = "https://your-tools.netlify.app/api/topics";
-  const [change, setChange] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
   const { topics } = useFetch(url);
+
+  const [change, setChange] = useState("");
   const router = useRouter();
   const inputRef = useRef(null);
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -27,6 +20,10 @@ const SearchForm = () => {
     inputRef.current.blur();
     router.push(`/search?query=${encodeURIComponent(change)}`);
   };
+
+  const handleClick = () => {
+    setChange("");
+  }
 
   const filteredTopics = Filter(topics, change);
 
@@ -37,9 +34,8 @@ const SearchForm = () => {
           type="text"
           placeholder="Buscar"
           ref={inputRef}
+          required
           onChange={(e) => setChange(e.target.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
           value={change}
         />
         <button>
@@ -48,18 +44,22 @@ const SearchForm = () => {
       </form>
       <ul
         className={
-          filteredTopics.length === 0 || change === "" || !isFocused
+          filteredTopics.length === 0 || change === ""
             ? styles.containerSearchListOff
             : styles.containerSearchList
         }
       >
-        {filteredTopics.map((topic) => (
-          <li key={topic._id}>
-            <a href={`https://your-tools.netlify.app/api/topics/${topic._id}`}>
-              {topic.titleTopic}
-            </a>
-          </li>
-        )).slice(0, 10)}
+        {filteredTopics
+          .map((topic) => (
+            <li key={topic._id}>
+              <Link href={`/topics/${topic.slug}`} >
+                <a onClick={handleClick}>
+                  {topic.titleTopic}
+                </a>
+              </Link>
+            </li>
+          ))
+          .slice(0, 10)}
       </ul>
     </div>
   );

@@ -979,6 +979,15 @@
   font-size: 20px;
 }
 
+@media only screen and (max-width: 768px){
+  .searchHeader{
+    padding-top: 0;
+  }
+  .searchHeader h1{
+    margin-top: 0;
+  }
+}
+
 /* NOT FOUND */
 
 .notFound{

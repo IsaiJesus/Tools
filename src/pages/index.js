@@ -7,9 +7,15 @@ export default function Home({ tools }) {
     <>
       <Head>
         <title>Tools</title>
-        <meta name="description" content="Tools by Isai Jesus" />
+        <meta
+          name="description"
+          content="Tools. Aprende de herramientas, recursos, códigos y otras cosas sobre tecnología."
+        />
+        <meta name="author" content="Isai Jesús" />
+        <meta name="keywords" content="blog, programming, programacion, code, resources, recursos, tips"/>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-
       <div className={styles.containerMain}>
         <main className={styles.containerContent}>
           {tools.map((tool) => (
