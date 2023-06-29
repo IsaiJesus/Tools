@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import OrderedTopics from "../../../helpers/GetOrderedTopics";
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
-import Loader from "components/Loader";
+//import Loader from "components/Loader";
 import NotFound from "components/NotFound";
 import styles from "../../../styles/Home.module.css";
 
 export default function Tool({ tool, error }) {
   const [topics, setTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  //const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const res = await fetch("https://your-tools.netlify.app/api/topics");
     const data = await res.json();
-    setIsLoading(false);
+    //setIsLoading(false);
     setTopics(data);
   };
   useEffect(() => {
@@ -36,10 +36,8 @@ export default function Tool({ tool, error }) {
         <div className={styles.toolBox}>
           <ToolHeader {...tool} />
           <div className={styles.topicsContainer}>
-            {isLoading ? (
-              <Loader />
-            ) : topics.filter((topic) => tool.titleTool === topic.category)
-                .length === 0 ? (
+            {topics.filter((topic) => tool.titleTool === topic.category)
+              .length === 0 ? (
               <NotFound />
             ) : (
               orderedTopics

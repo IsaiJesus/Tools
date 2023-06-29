@@ -10,14 +10,12 @@ import styles from "../styles/Home.module.css";
 
 const FormContainer = () => {
   const router = useRouter();
-  const { auth } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (!auth) {
-      router.push("/login", null, { shallow: true });
+    if (!window.localStorage.getItem("login")) {
+      router.push("/login");
     }
   });
-  //we have to save the auth value in the localstorage
 
   return (
     <main className={styles.containerMain}>

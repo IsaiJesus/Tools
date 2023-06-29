@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
+  console.log(window.localStorage.getItem("login"))
   const dispatch = useDispatch();
 
   const [change, setChange] = useState("");
