@@ -8,7 +8,6 @@ export const authSlice = createSlice({
   reducers: {
     logged: (state) => {
       state.auth = true;
-      window.localStorage.setItem("login", state.auth);
     },
   },
 });

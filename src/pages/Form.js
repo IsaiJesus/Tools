@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
 import Head from "next/head";
 import { ItemsProvider } from "context/ItemsContext";
 import { FormHeaderProvider } from "context/FormHeaderContext";

@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Head from "next/head";
-import { logged } from "store/slices/auth";
+//import { logged } from "store/slices/auth";
 import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
-  console.log(window.localStorage.getItem("login"))
   const dispatch = useDispatch();
 
   const [change, setChange] = useState("");
@@ -17,7 +16,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (change == password) {
-      dispatch(logged());
+      //dispatch(logged());
+      window.localStorage.setItem("login", true);
       router.push("/form");
     } else {
       toast.error("¡Contraseña incorrecta!");
