@@ -18,10 +18,10 @@ export default function NewItem(props) {
   const selectedItems = [...items];
   //state to know if the content from input image is valid
   const [validImage, setValidImage] = useState(false);
+  const regex = /\.(jpe?g|png|svg|webp)$/i;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const regex = /\.(jpe?g|png|svg|webp)$/i;
     if (item.type === "" || item.content === "") {
       toast.error("¡Añade contenido al item!");
     } else {

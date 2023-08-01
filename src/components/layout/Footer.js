@@ -1,4 +1,4 @@
-import { FaGithub, FaInstagram, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaStar } from "react-icons/fa";
 import styles from "../../styles/Home.module.css";
 
 const Footer = () => {
@@ -10,24 +10,24 @@ const Footer = () => {
           <FaGithub />
         </a>
         <a
-          href="https://www.instagram.com/isaijesus23/"
+          href="https://www.linkedin.com/in/isai-jes%C3%BAs-tapia-alc%C3%A1zar-0a9b88237/"
           target="_blank"
           rel="noreferrer"
         >
-          <FaInstagram />
-        </a>
-        <a
-          href="https://twitter.com/isaijesus02"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FaTwitter />
+          <FaLinkedin />
         </a>
         <a href="mailto:isaijesus02@gmail.com">
           <FaEnvelope />
         </a>
       </div>
-      <h3>Hecho por Isai Jesús</h3>
+      <a
+        href="https://github.com/IsaiJesus/Tools"
+        target="_blank"
+        rel="noreferrer"
+        className={styles.star}
+      >
+        <p>Dame una estrella</p> <FaStar/>
+      </a>
     </footer>
   );
 };

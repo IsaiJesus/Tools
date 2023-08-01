@@ -12,7 +12,7 @@ export default function Topic({ topic, error }) {
   const component = Component;
 
   return (
-    <main className={styles.containerMain}>
+    <article className={styles.containerMain}>
       <Head>
         <title>{topic.titleTopic} - Tools</title>
       </Head>
@@ -35,7 +35,7 @@ export default function Topic({ topic, error }) {
           </div>
         </div>
       </div>
-    </main>
+    </article>
   );
 }
 

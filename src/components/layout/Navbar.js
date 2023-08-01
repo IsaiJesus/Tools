@@ -8,14 +8,12 @@ const Navbar = () => {
     <nav className={styles.containerNav}>
       <Link href="/">
         <a>
-          <Image src="/img/tools.png" alt="Tools" width={70} height={70} />
-          <h1 className={styles.letterLogo}>Tools</h1>
+          <Image src="/img/tools.webp" alt="Tools" width={70} height={70} />
         </a>
       </Link>
       <SearchForm />
       <a href="https://isaijesus.netlify.app/" target="_blank" rel="noreferrer">
-        <Image src="/img/aztec.png" alt="Portfolio" width={70} height={70} />
-        <h1 className={styles.letterLogo}>Portafolio</h1>
+        <Image src="/img/avatar.webp" alt="Portfolio" width={70} height={70} />
       </a>
     </nav>
   );

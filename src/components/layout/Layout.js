@@ -8,8 +8,8 @@ const Layout = ({ children }) => {
   return (
     <Provider store={store}>
       <div className={styles.container}>
+       <Navbar />
         <div className={styles.containerTop}>
-          <Navbar />
           {children}
         </div>
         <Footer />

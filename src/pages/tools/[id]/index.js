@@ -1,28 +1,28 @@
 import Head from "next/head";
 import Error from "next/error";
 import { useEffect, useState } from "react";
-import OrderedTopics from "../../../helpers/GetOrderedTopics";
+import OrderedContent from "../../../helpers/GetOrderedContent";
+import Loader from "components/Loader";
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
-//import Loader from "components/Loader";
 import NotFound from "components/NotFound";
 import styles from "../../../styles/Home.module.css";
 
 export default function Tool({ tool, error }) {
   const [topics, setTopics] = useState([]);
-  //const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const res = await fetch("https://your-tools.netlify.app/api/topics");
     const data = await res.json();
-    //setIsLoading(false);
+    setIsLoading(false);
     setTopics(data);
   };
   useEffect(() => {
     getData();
   }, []);
 
-  const orderedTopics = OrderedTopics(topics);
+  const orderedTopics = OrderedContent(topics);
 
   if (error && error.statusCode)
     return <Error statusCode={error.statusCode} title={error.statusText} />;
@@ -35,16 +35,18 @@ export default function Tool({ tool, error }) {
       <div className={styles.toolContainer}>
         <div className={styles.toolBox}>
           <ToolHeader {...tool} />
-          <div className={styles.topicsContainer}>
-            {topics.filter((topic) => tool.titleTool === topic.category)
-              .length === 0 ? (
+          <section className={styles.topicsContainer}>
+            {isLoading ? (
+              <Loader />
+            ) : topics.filter((topic) => tool.titleTool === topic.category)
+                .length === 0 ? (
               <NotFound />
             ) : (
               orderedTopics
                 .filter((topic) => tool.titleTool === topic.category)
                 .map((topic) => <TopicBox key={topic._id} {...topic} />)
             )}
-          </div>
+          </section>
         </div>
       </div>
     </main>
