@@ -12,7 +12,7 @@ const useFetch = (url) => {
   useEffect(() => {
     getData();
   },);
-
+  
   return { topics };
 };
 

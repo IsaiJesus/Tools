@@ -7,7 +7,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 const SearchForm = () => {
-  const url = `${process.env.HOST_URL}/api/topics`;
+  let url = "https://your-tools.netlify.app/api/topics";
   const { topics } = useFetch(url);
 
   const [change, setChange] = useState("");
@@ -66,3 +66,14 @@ const SearchForm = () => {
 };
 
 export default SearchForm;
+
+export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.HOST_URL}/api/topics`);
+  const topics = await res.json();
+
+  return {
+    props: {
+      topics,
+    },
+  };
+};
