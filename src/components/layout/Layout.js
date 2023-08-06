@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
     <Provider store={store}>
       <div className={styles.container}>
        <Navbar />
-        <div className={styles.containerTop}>
+        <div>
           {children}
         </div>
         <Footer />

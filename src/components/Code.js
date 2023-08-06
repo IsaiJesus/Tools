@@ -28,7 +28,7 @@ const Code = ({ content }) => {
           <div
             className={styles.codeContainer}
             style={
-              content.aside ? { margin: "0 0 12px 0" } : { margin: "10px 0 12px 0" }
+              content.aside ? { margin: "0 0 12px 0" } : { margin: "10px 0 14px 0" }
             }
           >
             <LanguageHeadingContainer code={content.code} language={content.language} />

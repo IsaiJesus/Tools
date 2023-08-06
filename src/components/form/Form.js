@@ -106,7 +106,7 @@ export default function Form() {
 
   const uploadTool = async () => {
     try {
-      await fetch("https://your-tools.netlify.app/api/tools", {
+      await fetch(`${process.env.HOST_URL}/api/tools`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export default function Form() {
 
   const uploadTopic = async () => {
     try {
-      await fetch("https://your-tools.netlify.app/api/topics", {
+      await fetch("http://localhost:3000/api/topics", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -138,7 +138,7 @@ export default function Form() {
         <h1>¿Qué quieres agregar?</h1>
         <select
           name="whatToAdd"
-          className={styles.formInputs}
+          className={styles.formSelect}
           onChange={handleWhatToAdd}
         >
           <option>Elige lo que quieres subir</option>
@@ -151,7 +151,7 @@ export default function Form() {
         {whatToAdd === "tema" && whatToAdd !== "" && (
           <select
             name="addItem"
-            className={styles.formInputs}
+            className={styles.formSelect}
             value={addItem}
             onChange={handleAddItem}
           >

@@ -7,16 +7,15 @@
 }
 
 .containerMain{
-  width: 100%;
+  min-height: calc(100vh - 260px);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .headerTitle{
   padding: 30px;
-  margin: 10px 0;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
@@ -68,10 +67,12 @@
 
 @media only screen and (max-width: 768px){
   .headerTitle{
-    padding: 25px;
-  }
-  .headerTitle{
     grid-template-columns: repeat(1, 1fr);
+    padding: 30px 20px;
+  }
+  .headerTitleText{
+    padding: 0;
+    margin-bottom: 8px;
   }
   .headerTitle h1{
     padding: 0;
@@ -100,17 +101,16 @@
 }
 
 .containerNav a{
-  padding: 0 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
   text-decoration: none;
 }
 
 .containerSearchNav{
   position: relative;
+  margin: 0 12px;
 }
 
 .searchNav{
@@ -202,7 +202,7 @@
 
 @media only screen and (max-width: 768px){
   .containerNav{
-    padding: 10px 22px;
+    padding: 10px 20px;
   }
   .containerNav a h1{
     display: none;
@@ -218,7 +218,7 @@
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 12px;
 }
 
 .tool{
@@ -268,7 +268,7 @@
 @media only screen and (max-width: 768px){
   .containerContent{
     grid-template-columns: repeat(1, 1fr);
-    padding: 25px;
+    padding: 20px;
   }
 }
 
@@ -336,33 +336,27 @@
 
 .toolContainer{
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toolBox{
-  grid-column-start: 2;
-  grid-column-end: 6;
+  overflow-x: hidden;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
 }
 
 .toolHeader{
-  padding: 30px;
+  padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #373c43;
   color: #fff ;
-}
-
-@media only screen and (max-width: 768px){
-  .toolContainer{
-    padding: 30px 0;
-    grid-template-columns: repeat(12, 1fr);
-  }
-  .toolBox{
-    grid-column-start: 2;
-    grid-column-end: 12;
-  }
 }
 
 .toolHeader img{
@@ -376,17 +370,17 @@
 }
 
 .toolHeaderText h1{
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
 }
 
 .toolHeaderText p{
   font-size: 20px;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
 @media only screen and (max-width: 768px){
   .toolHeader{
-    padding: 8px;
+    padding: 20px 0;
     flex-direction: column;
   }
 
@@ -398,7 +392,7 @@
 }
 
 .topicsContainer{
-  padding: 30px;
+  padding: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -443,12 +437,29 @@
 
 .topicBox{
   width: calc(100% - 40px);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   padding: 20px;
   border-radius: 3px;
   text-decoration: none;
   background-color: #373c43;
   color: #fff;
+}
+
+.topicBox:hover{
+  outline: 1.4px solid #4f555f;
+}
+
+.topicBox h4{
+  padding: 5px 0;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  font-size: 25px;
+}
+
+.topicBox p{
+  padding: 6px 0;
+  margin-top: 0;
+  margin-bottom: 6px;
 }
 
 .toolNotFound{
@@ -466,27 +477,10 @@
 
 @media only screen and (max-width: 768px){
   .topicsContainer{
-    padding: 30px 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
   }
-}
-
-.topicBox:hover{
-  outline: 1.4px solid #4f555f;
-}
-
-.topicBox h4{
-  padding: 5px 0 10px 0;
-  margin-top: 0;
-  margin-bottom: 5px;
-  font-size: 25px;
-}
-
-.topicBox p{
-  padding: 6px 0;
-  margin-top: 0;
-  margin-bottom: 6px;
 }
 
 .descriptionOfTopic{
@@ -503,28 +497,18 @@
 
 .topicContainer{
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.topicContainerCenter{
-  grid-column-start: 2;
-  grid-column-end: 6;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
-@media only screen and (max-width: 768px){
-  .topicContainer{
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .topicContainerCenter{
-    grid-column-start: 2;
-    grid-column-end: 12;
-  }
+.topicContainerCenter{
+  overflow-x: hidden;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
 }
 
 .topicHeader{
@@ -556,17 +540,17 @@
 /* CONTENT */
 
 .subtitle{
-  margin: 10px 0 12px 0;
+  margin: 10px 0 14px 0;
   font-size: 25px;
 }
 
 .text{
-  margin: 10px 0 12px 0;
+  margin: 10px 0 14px 0;
   font-size: 17px;
 }
 
 .url{
-  margin: 10px 0 12px 0;
+  margin: 10px 0 14px 0;
   font-size: 17px;
   color: #0081d7;
   width: fit-content;
@@ -578,7 +562,7 @@
 
 .image{
   align-self: flex-start;
-  margin: 10px 0 12px 0;
+  margin: 10px 0 14px 0;
   border-radius: 3px;
   min-height: 100px;
   max-height: 500px;
@@ -664,23 +648,14 @@
   justify-content: center;
 }
 
-.containerForm form input, .containerForm form textarea{
-  width: calc(400px - 36px);
-}
-
-.containerForm form textarea{
+.containerForm textarea{
   min-height: 60px;
   max-height: 120px;
+}
+
+.formInput{ 
   min-width: calc(400px - 36px);
   max-width: calc(400px - 36px);
-}
-
-.containerForm form select{
-  width: 400px;
-}
-
-.formInputs{
-  width: calc(100% - 36px);
   font-family: Arial;
   padding: 12px 18px;
   margin-bottom: 15px;
@@ -692,8 +667,21 @@
   border: none;
 }
 
-.formInputs:focus{
+.formInput:focus{
   outline: 1px solid #F0F0F0;
+}
+
+.formSelect{
+  width: 400px;
+  font-family: Arial;
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: #373C43;
+  color: #FFF;
+  outline: none;
+  border: none;
 }
 
 .containerForm form ::placeholder{
@@ -701,6 +689,7 @@
 }
 
 .formDivider{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -795,6 +784,7 @@
 
 .topicContentAside{
   padding: 20px 0;
+  width: 100%;
 }
 
 .boxHidden{
@@ -1063,36 +1053,40 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .containerForm aside{
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(8, 1fr);
   }
-  
   .containerAside{
     grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-end: 8;
+  }
+  .containerAside h1{
+    padding: 8px 0;
+    margin: 0;
+  }
+  .containerForm form{
+    padding: 20px;
+  }
+  .containerForm aside{
+    padding: 20px;
   }
 }
 
 @media only screen and (max-width: 640px){
   .containerAside{
     grid-column-start: 1;
-    grid-column-end: 13;
+    grid-column-end: 9;
   }
-
   .formDivider{
     width: 100%;
   }
+}
 
-  .containerForm form textarea{
-    width: 100%;
-    min-width: calc(100% - 36px);
+@media only screen and (max-width: 540px){
+  .formInput{
     max-width: calc(100% - 36px);
+    min-width: calc(100% - 36px);
   }
-
-  .containerForm form input{
-    width: calc(100% - 36px);
-  }
-
-  .containerForm form select{
+  .formSelect{
     width: 100%;
   }
 }

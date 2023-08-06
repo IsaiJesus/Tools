@@ -38,7 +38,7 @@ export default function Home({ tools }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch("https://your-tools.netlify.app/api/tools");
+  const res = await fetch(`${process.env.HOST_URL}/api/tools`);
   const tools = await res.json();
 
   return {

@@ -12,11 +12,11 @@ export default function Topic({ topic, error }) {
   const component = Component;
 
   return (
-    <article className={styles.containerMain}>
+    <main className={styles.containerMain}>
       <Head>
         <title>{topic.titleTopic} - Tools</title>
       </Head>
-      <div className={styles.topicContainer}>
+      <article className={styles.topicContainer}>
         <div className={styles.topicContainerCenter}>
           <div className={styles.topicHeader}>
             <h1>{topic.titleTopic}</h1>
@@ -34,13 +34,13 @@ export default function Topic({ topic, error }) {
             }
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </main>
   );
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`https://your-tools.netlify.app/api/topics/${id}`);
+  const res = await fetch(`${process.env.HOST_URL}/api/topics/${id}`);
   if (res.status === 200) {
     const topic = await res.json();
     return {

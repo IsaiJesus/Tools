@@ -8,7 +8,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
-    fetch('https://your-tools.netlify.app/api/tools')
+    fetch(`${process.env.HOST_URL}/api/tools`)
       .then(res => res.json())
       .then(data => {
         setCategories(data.map(category => category.titleTool));
@@ -27,7 +27,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
             name="title"
             required
             value={formHeader.title}
-            className={styles.formInputs}
+            className={styles.formInput}
             onChange={handleChange}
             placeholder="Título de la herramienta"
             autoComplete="off"
@@ -36,7 +36,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
             name="description"
             required
             value={formHeader.description}
-            className={styles.formInputs}
+            className={styles.formInput}
             onChange={handleChange}
             placeholder="Descripción de la herramienta"
             autoComplete="off"
@@ -50,7 +50,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
             name="title"
             required
             value={formHeader.title}
-            className={styles.formInputs}
+            className={styles.formInput}
             onChange={handleChange}
             placeholder="Título del tema"
             autoComplete="off"
@@ -59,7 +59,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
             name="description"
             required
             value={formHeader.description}
-            className={styles.formInputs}
+            className={styles.formInput}
             onChange={handleChange}
             placeholder="Descripción del tema"
             autoComplete="off"
@@ -71,7 +71,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
           type="text"
           name="imageTool"
           required={whatToAdd === "herramienta"}
-          className={styles.formInputs}
+          className={styles.formInput}
           value={formHeader.imageTool}
           onChange={handleChange}
           placeholder="Añade la imagen de la herramienta"
@@ -81,7 +81,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
         <select
           name="categoryTopic"
           required={whatToAdd === "tema"}
-          className={styles.formInputs}
+          className={styles.formSelect}
           defaultValue={formHeader.categoryTopic}
           onChange={handleChange}
         >

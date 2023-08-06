@@ -11,12 +11,12 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/img/favicon.ico" />
         <meta
           name="description"
-          content="Tools. Aprende de herramientas, recursos, códigos y otras cosas sobre tecnología."
+          content="Tools. Herramientas, recursos, tutoriales y consejos para mejorar tus habilidades en programación y tecnología."
         />
         <meta name="author" content="Isai Jesús" />
         <meta
           name="keywords"
-          content="blog, programming, programacion, code, resources, recursos, tips"
+          content="blog, programming, programacion, code, resources, recursos, tips, Isai Jesus"
         />
       </Head>
       <Layout>

@@ -66,7 +66,7 @@ export default function NewItem(props) {
           <textarea
             name="subtitle"
             value={item.content ? item.content : ""}
-            className={styles.formInputs}
+            className={styles.formInput}
             onChange={handleChange}
             placeholder="Introduce un subtítulo"
             autoComplete="off"
@@ -74,7 +74,7 @@ export default function NewItem(props) {
         ) : addItem === "text" ? (
           <textarea
             name="text"
-            className={styles.formInputs}
+            className={styles.formInput}
             value={item.content ? item.content : ""}
             onChange={handleChange}
             placeholder="Introduce un texto o párrafo"
@@ -85,7 +85,7 @@ export default function NewItem(props) {
             <input
               type="text"
               name="textUrl"
-              className={styles.formInputs}
+              className={styles.formInput}
               value={item.content.textUrl ? item.content.textUrl : ""}
               onChange={handleChange}
               placeholder="Introduce el texto de la URL"
@@ -94,7 +94,7 @@ export default function NewItem(props) {
             <input
               type="url"
               name="url"
-              className={styles.formInputs}
+              className={styles.formInput}
               value={item.content.url ? item.content.url : ""}
               onChange={handleChange}
               placeholder="Introduce la URL"
@@ -106,7 +106,7 @@ export default function NewItem(props) {
             <input
               type="text"
               name="language"
-              className={styles.formInputs}
+              className={styles.formInput}
               value={item.content.language ? item.content.language : ""}
               onChange={handleChange}
               placeholder="Introduce el lenguaje del código"
@@ -114,7 +114,7 @@ export default function NewItem(props) {
             />
             <textarea
               name="code"
-              className={styles.formInputs}
+              className={styles.formInput}
               value={item.content.code ? item.content.code : ""}
               onChange={handleChange}
               placeholder="Introduce tu código"
@@ -125,7 +125,7 @@ export default function NewItem(props) {
           <input
             name="image"
             type="text"
-            className={styles.formInputs}
+            className={styles.formInput}
             value={item.content ? item.content : ""}
             onChange={handleChange}
             placeholder="Introduce el link de tu imagen"

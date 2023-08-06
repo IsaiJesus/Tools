@@ -1,27 +1,12 @@
 import Head from "next/head";
 import Error from "next/error";
-import { useEffect, useState } from "react";
 import OrderedContent from "../../../helpers/GetOrderedContent";
-import Loader from "components/Loader";
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
 import NotFound from "components/NotFound";
 import styles from "../../../styles/Home.module.css";
 
-export default function Tool({ tool, error }) {
-  const [topics, setTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getData = async () => {
-    const res = await fetch("https://your-tools.netlify.app/api/topics");
-    const data = await res.json();
-    setIsLoading(false);
-    setTopics(data);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
+export default function Tool({ tool, topics, error }) {
   const orderedTopics = OrderedContent(topics);
 
   if (error && error.statusCode)
@@ -36,10 +21,8 @@ export default function Tool({ tool, error }) {
         <div className={styles.toolBox}>
           <ToolHeader {...tool} />
           <section className={styles.topicsContainer}>
-            {isLoading ? (
-              <Loader />
-            ) : topics.filter((topic) => tool.titleTool === topic.category)
-                .length === 0 ? (
+            {topics.filter((topic) => tool.titleTool === topic.category)
+              .length === 0 ? (
               <NotFound />
             ) : (
               orderedTopics
@@ -54,22 +37,30 @@ export default function Tool({ tool, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`https://your-tools.netlify.app/api/tools/${id}`);
-  if (res.status === 200) {
-    const tool = await res.json();
+  try {
+    const resTool = await fetch(`${process.env.HOST_URL}/api/tools/${id}`);
+    const resTopics = await fetch(`${process.env.HOST_URL}/api/topics`);
+
+    const [tool, topics] = await Promise.all([
+      resTool.json(),
+      resTopics.json(),
+    ]);
+
     return {
       props: {
         tool,
+        topics,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        error: {
+          statusCode: 500,
+          statusText: "Internal Server Error",
+        },
       },
     };
   }
-
-  return {
-    props: {
-      error: {
-        statusCode: res.status,
-        statusText: "Invalid Id",
-      },
-    },
-  };
 }
