@@ -7,7 +7,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 const SearchForm = () => {
-  const url = "http://localhost:3000/api/topics";
+  const url = `${process.env.HOST_URL}/api/topics`;
   const { topics } = useFetch(url);
 
   const [change, setChange] = useState("");
