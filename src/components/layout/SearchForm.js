@@ -7,7 +7,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 const SearchForm = () => {
-  let url = "https://your-tools.netlify.app/api/topics";
+  const url = "https://your-tools.netlify.app/api/topics";
   const { topics } = useFetch(url);
 
   const [change, setChange] = useState("");

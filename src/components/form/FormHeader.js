@@ -8,7 +8,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
-    fetch(`${process.env.HOST_URL}/api/tools`)
+    fetch("https://your-tools.netlify.app/api/tools")
       .then(res => res.json())
       .then(data => {
         setCategories(data.map(category => category.titleTool));
