@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Error from "next/error";
+import HOST_URL from "consts/Host";
 import OrderedContent from "../../../helpers/GetOrderedContent";
 import ToolHeader from "../../../components/ToolHeader";
 import TopicBox from "../../../components/TopicBox";
@@ -38,8 +39,8 @@ export default function Tool({ tool, topics, error }) {
 
 export async function getServerSideProps({ query: { id } }) {
   try {
-    const resTool = await fetch(`${process.env.HOST_URL}/api/tools/${id}`);
-    const resTopics = await fetch(`${process.env.HOST_URL}/api/topics`);
+    const resTool = await fetch(`${HOST_URL}/api/tools/${id}`);
+    const resTopics = await fetch(`${HOST_URL}/api/topics`);
 
     const [tool, topics] = await Promise.all([
       resTool.json(),

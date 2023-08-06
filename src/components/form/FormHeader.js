@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import HOST_URL from "consts/Host";
 import FormHeaderContext from "context/FormHeaderContext";
 import Warning from "../Warning";
 import styles from "../../styles/Home.module.css";
@@ -8,7 +9,7 @@ export default function FormHeader({ whatToAdd, formHeader }) {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
-    fetch("https://your-tools.netlify.app/api/tools")
+    fetch(`${HOST_URL}api/tools`)
       .then(res => res.json())
       .then(data => {
         setCategories(data.map(category => category.titleTool));

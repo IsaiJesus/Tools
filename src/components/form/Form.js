@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
+import HOST_URL from "consts/Host";
 import FormHeaderContext from "context/FormHeaderContext";
 import GenerateSlug from "helpers/GenerateSlug";
 import FormHeader from "./FormHeader";
@@ -106,7 +107,7 @@ export default function Form() {
 
   const uploadTool = async () => {
     try {
-      await fetch("https://your-tools.netlify.app/api/tools", {
+      await fetch(`${HOST_URL}api/tools`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +121,7 @@ export default function Form() {
 
   const uploadTopic = async () => {
     try {
-      await fetch("https://your-tools.netlify.app/api/topics", {
+      await fetch(`${HOST_URL}api/topics`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

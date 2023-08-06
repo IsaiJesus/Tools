@@ -1,13 +1,14 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import useFetch from "hooks/useFetch";
+import HOST_URL from "consts/Host";
 import Filter from "helpers/Filter";
 import { BiSearch } from "react-icons/bi";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 const SearchForm = () => {
-  const url = "https://your-tools.netlify.app/api/topics";
+  const url = `${HOST_URL}api/topics`;
   const { topics } = useFetch(url);
 
   const [change, setChange] = useState("");
@@ -68,7 +69,7 @@ const SearchForm = () => {
 export default SearchForm;
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.HOST_URL}/api/topics`);
+  const res = await fetch(`${HOST_URL}/api/topics`);
   const topics = await res.json();
 
   return {

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HOST_URL from "consts/Host";
 import Filter from "helpers/Filter";
 import TopicBox from "components/TopicBox";
 import styles from "../styles/Home.module.css";
@@ -46,7 +47,7 @@ function Search({ topics }) {
 export default Search;
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.HOST_URL}/api/topics`);
+  const res = await fetch(`${HOST_URL}/api/topics`);
   const topics = await res.json();
 
   return {

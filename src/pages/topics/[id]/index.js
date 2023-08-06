@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Error from "next/error";
+import HOST_URL from "consts/Host";
 import Component from "Interface/Component";
 import styles from "../../../styles/Home.module.css";
 
@@ -40,7 +41,7 @@ export default function Topic({ topic, error }) {
 }
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`${process.env.HOST_URL}/api/topics/${id}`);
+  const res = await fetch(`${HOST_URL}/api/topics/${id}`);
   if (res.status === 200) {
     const topic = await res.json();
     return {

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import HOST_URL from "consts/Host";
 import Tool from "../components/Tool";
 import OrderedContent from "helpers/GetOrderedContent";
 import styles from "../styles/Home.module.css";
@@ -38,7 +39,7 @@ export default function Home({ tools }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.HOST_URL}/api/tools`);
+  const res = await fetch(`${HOST_URL}/api/tools`);
   const tools = await res.json();
 
   return {

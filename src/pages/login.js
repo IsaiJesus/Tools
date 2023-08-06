@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
 import Head from "next/head";
-//import { logged } from "store/slices/auth";
+import HOST_URL from "consts/Host";
 import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
-  const dispatch = useDispatch();
 
   const [change, setChange] = useState("");
   const [password, setPassword] = useState(null);
@@ -16,7 +14,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (change == password) {
-      //dispatch(logged());
       window.localStorage.setItem("login", true);
       router.push("/form");
     } else {
@@ -31,7 +28,7 @@ const Login = () => {
 
   const getPassword = async () => {
     try {
-      const res = await fetch(`${process.env.HOST_URL}/api/password`);
+      const res = await fetch(`${HOST_URL}/api/password`);
       const data = await res.json();
       setPassword(data[0].password);
     } catch (error) {
