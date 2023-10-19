@@ -10,7 +10,7 @@ const Footer = () => {
           <FaGithub />
         </a>
         <a
-          href="www.linkedin.com/in/isai-jesus-tapia-0a9b88237"
+          href="https://www.linkedin.com/in/isai-jesus-tapia/"
           target="_blank"
           rel="noreferrer"
         >
