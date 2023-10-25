@@ -335,9 +335,10 @@
 /* TOOL */
 
 .toolContainer{
+  min-height: calc(100vh - 280px);
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -565,7 +566,7 @@
   margin: 10px 0 14px 0;
   border-radius: 3px;
   min-height: 100px;
-  max-height: 500px;
+  max-height: 300px;
   max-width: 100%;
 }
 
