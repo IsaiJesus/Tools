@@ -469,6 +469,10 @@
   font-size: 17px;
 }
 
+.contentArticle ul li ul{
+  margin: 0;
+}
+
 .containerArticle blockquote{
   padding: 0 0 0 40px;
   margin: 16px 0;
@@ -544,7 +548,7 @@
 
 /* CODEBLOCK */
 
-.codeContainer{
+.containerCode{
   width: 100%;
   overflow-x: auto;
 }
@@ -552,48 +556,49 @@
 .code{
   padding: 12px;
   margin: 0;
+  font-size: 16px;
   overflow-x: auto;
-  font-size: 15px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .code div{
   width:fit-content;
 }
 
-.topCode{
+.headCode{
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom: 1px solid #4f555f;
-  background-color: #131313;
-  padding: 0.75rem 1.25rem;
-  color: #fff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #4C4C4C;
+  background-color: #222222;
+  color: #FFFFFF;
 }
 
-.topCode p{
+.headCode p{
   margin: 0;
   font-weight: 700;
   font-size: 14px;
+  font-family: 'Inter', sans-serif;
 }
 
-.topCode button{
+.headCode button{
   padding: 6px 10px;
   margin: 0 0 0 5px 0;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 14px;
   border: none;
-  outline: 1px solid #4f555f;
+  outline: 1px solid #4C4C4C;
   background: none;
-  color: #fff;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
-.topCode button:hover{
-  background: #13181C;
+.headCode button:hover{
+  background: #1A1A1A;
 }
 
 /*FORM*/

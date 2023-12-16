@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import styles from "../styles/Home.module.css";
 
-export default function LanguageHeadingContainer({code, language}) {
+export default function LanguageHeaderCode({code, language}) {
   const [copied, setCopied] = useState(false);
   const deleteCopied = () => {
     setCopied(false);
@@ -13,7 +13,7 @@ export default function LanguageHeadingContainer({code, language}) {
   };
 
   return (
-    <div className={styles.topCode}>
+    <div className={styles.headCode}>
       <p>{language.toUpperCase() == 'CPP' ? 'C++' : language.toUpperCase()}</p>
       <CopyToClipboard text={code}>
         <button onClick={copyAlert}>{copied ? "¡Copiado!" : "Copiar"}</button>
