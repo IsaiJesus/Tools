@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import HOST_URL from "consts/Host";
 import Filter from "helpers/Filter";
-import TopicBox from "components/TopicBox";
+import TopicBox from "components/BoxArticle";
 import styles from "../styles/Home.module.css";
 
 function Search({ topics }) {

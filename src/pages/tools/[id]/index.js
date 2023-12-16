@@ -3,7 +3,7 @@ import Error from "next/error";
 import HOST_URL from "consts/Host";
 import OrderedContent from "../../../helpers/GetOrderedContent";
 import ToolHeader from "../../../components/ToolHeader";
-import TopicBox from "../../../components/TopicBox";
+import ArticleBox from "../../../components/BoxArticle";
 import NotFound from "components/NotFound";
 import styles from "../../../styles/Home.module.css";
 
@@ -18,17 +18,17 @@ export default function Tool({ tool, topics, error }) {
       <Head>
         <title>{tool.titleTool} - Tools</title>
       </Head>
-      <div className={styles.toolContainer}>
-        <div className={styles.toolBox}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionBox}>
           <ToolHeader {...tool} />
-          <section className={styles.topicsContainer}>
+          <section className={styles.articlesContainer}>
             {topics.filter((topic) => tool.titleTool === topic.category)
               .length === 0 ? (
               <NotFound />
             ) : (
               orderedTopics
                 .filter((topic) => tool.titleTool === topic.category)
-                .map((topic) => <TopicBox key={topic._id} {...topic} />)
+                .map((topic) => <ArticleBox key={topic._id} {...topic} />)
             )}
           </section>
         </div>

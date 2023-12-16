@@ -4,6 +4,7 @@ const topicsSchema = new Schema(
   {
     titleTopic: {
       type: String,
+      unique: true,
       required: [true, "El título es requerido"],
       trim: true,
       maxLength: [100, "El título debe tener menos de 100 caracteres"],

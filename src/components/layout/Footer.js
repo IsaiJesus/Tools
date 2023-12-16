@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.css";
 
 const Footer = () => {
   return (
-    <footer className={styles.footerContainer}>
+    <footer className={styles.containerFooter}>
       <h2>Contacto</h2>
       <div className={styles.mediaFooter}>
         <a href="https://github.com/isaijesus" target="_blank" rel="noreferrer">
@@ -24,7 +24,7 @@ const Footer = () => {
         href="https://github.com/IsaiJesus/Tools"
         target="_blank"
         rel="noreferrer"
-        className={styles.star}
+        className={styles.starFooter}
       >
         <p>Dame una estrella</p> <FaStar/>
       </a>

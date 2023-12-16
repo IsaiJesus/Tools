@@ -4,17 +4,17 @@
 }
 
 ::-webkit-scrollbar-track{
-  background: #202225;
+  background: #1A1A1A;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb{
-  background: rgba(0, 0, 0, 0.2);
+  background: #121212;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover{
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 html,
@@ -22,7 +22,6 @@ body {
   padding: 0;
   margin: 0;
   background-color: #202225;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Inter', sans-serif;
   white-space: pre-line
 }
