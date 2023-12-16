@@ -12,8 +12,8 @@ export default function BoxArticle({
 
   return (
     <Link href={`/topics/${slug}`}>
-      <a className={styles.articleBox}>
-        <div className={styles.articleBoxTitle}>
+      <a className={styles.boxArticle}>
+        <div className={styles.boxArticleTitle}>
           <h3>{titleTopic}</h3>
           <img
             src="https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"
@@ -21,14 +21,14 @@ export default function BoxArticle({
             width={30}
           />
         </div>
-        <p className={styles.articleDescription}>{descriptionTopic}</p>
-        <ul className={styles.articleBoxTags}>
+        <p className={styles.boxArticleDescription}>{descriptionTopic}</p>
+        <ul className={styles.boxArticleTags}>
           <li>web</li>
           <li>css</li>
           <li>javascript</li>
           <li>react</li>
         </ul>
-        <p className={styles.articleDate}>{formattedDate}</p>
+        <p className={styles.boxDateArticle}>{formattedDate}</p>
       </a>
     </Link>
   );

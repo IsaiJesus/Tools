@@ -13,8 +13,6 @@ require("prismjs/components/prism-dart");
 require("prismjs/components/prism-csharp");
 require("prismjs/components/prism-swift");
 
-/*this way to get props is because I wanted to save lines of code in files 
-  "pages/topics/[id]/index.js" and "componente/form/AsideForm.js"*/
 const Code = ({ content }) => {
   return (
     <>
@@ -28,11 +26,11 @@ const Code = ({ content }) => {
           <div
             className={styles.codeContainer}
             style={
-              content.aside ? { margin: "0 0 12px 0" } : { margin: "10px 0 14px 0" }
+              content.aside ? { margin: "0" } : { margin: "20px 0 30px 0" }
             }
           >
             <LanguageHeadingContainer code={content.code} language={content.language} />
-            <pre className={styles.code} style={style}>
+            <pre className={styles.code} style={{style, background:"#131313"}}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (

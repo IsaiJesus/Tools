@@ -8,7 +8,7 @@ export default function Section({titleHeader, articles}) {
         <div className={styles.titleSection}>
           <h2>{titleHeader}</h2>
         </div>
-        <section className={styles.articlesContainer}>
+        <section className={styles.containerArticles}>
           {articles.map((article) => (
             <BoxArticle key={article._id} {...article} />
           ))}
