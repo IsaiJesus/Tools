@@ -18,7 +18,7 @@ export default function Home({ articles, error }) {
       </Head>
       <div className={styles.containerMain}>
         <MainHeader />
-        <Section titleHeader="Artículos" articles={orderedArticles}/>
+        <Section titleHeader="Artículos" articles={orderedArticles} />
       </div>
     </>
   );
@@ -28,9 +28,19 @@ export const getServerSideProps = async () => {
   const res = await fetch(`${HOST_URL}/api/articles`);
   const articles = await res.json();
 
+  if (res.status === 200) {
+    return {
+      props: {
+        articles,
+      },
+    };
+  }
   return {
     props: {
-      articles,
+      error: {
+        statusCode: res.status,
+        statusText: "Invalid Id",
+      },
     },
   };
 };

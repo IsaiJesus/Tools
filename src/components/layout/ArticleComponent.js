@@ -8,33 +8,34 @@ import Code from "components/Code";
 import "katex/dist/katex.min.css";
 import styles from "../../styles/Home.module.css";
 
-export default function ArticleComponent({markdown}) {
+export default function ArticleComponent({ markdown }) {
   return (
     <div className={styles.contentArticle}>
-            <ReactMarkdown
-              children={markdown}
-              remarkPlugins={[remarkGfm, remarkMath]}
-              rehypePlugins={[rehypeKatex]}
-              components={{
-                code(props) {
-                  const { children, className, ...rest } = props;
-                  const { language, code } = ExtractCodeInfo(className || "");
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{
+          code(props) {
+            const { children, className, ...rest } = props;
+            const { language, code } = ExtractCodeInfo(className || "");
 
-                  return language ? (
-                    <Code
-                      content={{
-                        language,
-                        code: String(children).replace(/\n$/, ""),
-                        ...rest,
-                      }}
-                    />
-                  ) : (
-                    <code {...rest}>{children}</code>
-                  );
-                },
-                a: LinkRenderer,
-              }}
-            />
-          </div>
-  )
+            return language ? (
+              <Code
+                content={{
+                  language,
+                  code: String(children).replace(/\n$/, ""),
+                  ...rest,
+                }}
+              />
+            ) : (
+              <code {...rest}>{children}</code>
+            );
+          },
+          a: LinkRenderer,
+        }}
+      >
+        {markdown}
+      </ReactMarkdown>
+    </div>
+  );
 }

@@ -3,8 +3,6 @@ import styles from "../../styles/Home.module.css";
 
 export default function Section({ titleHeader, articles }) {
 
-  const query = titleHeader.substring("Resultados de la búsqueda: ".length);
-
   return (
     <div className={styles.containerSection}>
       <div className={styles.boxSection}>
@@ -12,7 +10,7 @@ export default function Section({ titleHeader, articles }) {
           <h2>{titleHeader}</h2>
         </div>
         <section className={styles.containerArticles}>
-          {articles.length === 0 || query === "" ? (
+          {articles.length === 0 ? (
             <h1 className={styles.notFound}>
               ¡No existe contenido!
             </h1>
