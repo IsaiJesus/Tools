@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { ItemsProvider } from "context/ItemsContext";
-import { FormHeaderProvider } from "context/FormHeaderContext";
+import { FormInputsProvider } from "context/FormInputsContext";
 import Form from "components/form/Form";
 import AsideForm from "components/form/AsideForm";
 import styles from "../styles/Home.module.css";
@@ -21,14 +20,12 @@ const FormContainer = () => {
       <Head>
         <title>Upload contributions - Tools</title>
       </Head>
-      <FormHeaderProvider>
+      <FormInputsProvider>
         <div className={styles.containerForm}>
-          <ItemsProvider>
-            <Form />
-            <AsideForm />
-          </ItemsProvider>
+          <Form />
+          <AsideForm />
         </div>
-      </FormHeaderProvider>
+      </FormInputsProvider>
     </main>
   );
 };

@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
-
   const [change, setChange] = useState("");
   const [password, setPassword] = useState(null);
   const router = useRouter();
@@ -37,30 +36,32 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.containerLogin}>
+    <>
       <Head>
         <title>Login - Tools</title>
       </Head>
-      <form onSubmit={handleSubmit} className={styles.formLogin}>
-        <h1>Iniciar sesión</h1>
-        <div className={styles.boxLogin}>
-          <label htmlFor="password">Contraseña</label>
-          <input
-            id="password"
-            type="password"
-            required
-            value={change}
-            onChange={(e) => setChange(e.target.value)}
-          />
-          <button>Entrar</button>
-        </div>
-      </form>
-      <Toaster
-        toastOptions={{
-          duration: 2500,
-        }}
-      />
-    </div>
+      <div className={styles.containerMain}>
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
+          <h1>Iniciar sesión</h1>
+          <div className={styles.boxLoginForm}>
+            <label htmlFor="password">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              required
+              value={change}
+              onChange={(e) => setChange(e.target.value)}
+            />
+            <button className={styles.submitButton}style={{background: "#121212"}}>Entrar</button>
+          </div>
+        </form>
+        <Toaster
+          toastOptions={{
+            duration: 2500,
+          }}
+        />
+      </div>
+    </>
   );
 };
 

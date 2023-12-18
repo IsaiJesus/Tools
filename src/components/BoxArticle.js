@@ -22,12 +22,6 @@ export default function BoxArticle({
           />
         </div>
         <p className={styles.boxArticleDescription}>{descriptionTopic}</p>
-        <ul className={styles.boxArticleTags}>
-          <li>web</li>
-          <li>css</li>
-          <li>javascript</li>
-          <li>react</li>
-        </ul>
         <p className={styles.boxDateArticle}>{formattedDate}</p>
       </a>
     </Link>

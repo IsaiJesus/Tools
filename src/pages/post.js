@@ -81,7 +81,16 @@ WHERE nombre = 'Carlos López';
 SELECT * FROM usuarios;
 ~~~
 
-direct URL: https://www.copycat.dev/ However, a real-life example of dark theme usage outside of a small blog or website would probably involve a user with settings they can save and persist across any session, not just temporary state in localStorage that \`código de ejemplo\` gets toggled via Context.
+$$
+\begin{matrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9 \\
+\end{matrix}
+$$
+
+
+direct URL: https://www.copycat.dev/ However, a real-life example of dark theme usage outside of a small blog or website would probably involve a user with settings they can save and persist across any session, not just temporary state in localStorage that \`SELECT\` gets toggled via Context.
 `;
 
 export default function Post() {
@@ -91,10 +100,11 @@ export default function Post() {
         <div className={styles.mainArticle}>
           <div className={styles.headerArticle}>
             <h1>Título del tema</h1>
-            <p>
+            <p className={styles.headerArticleDescription}>
               Ejemplo de descripción donde se alarga el texto para ver cómo se
               ve si sale de la primera línea, para dar los estilos necesarios.
             </p>
+            <p className={styles.headerArticleDate}>25 de octubre de 2023</p>
           </div>
           <div className={styles.contentArticle}>
             <ReactMarkdown

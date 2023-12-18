@@ -11,17 +11,15 @@ const FormModal = ({ setModal, modal, handleSubmit }) => {
         <button className={styles.closeModal}>
           <HiX />
         </button>
-        <p>
-          ¿Estás seguro de que has revisado todo el contenido y estás listo para
-          publicarlo?
-        </p>
+        <h1>
+          ¿Has revisado todo el contenido y estás listo para publicarlo?
+        </h1>
         <div>
           <button onClick={handleSubmit} className={styles.modalButtons}>
             Subir
           </button>
           <button
             onClick={() => setModal(false)}
-            className={styles.modalButtons}
           >
             Cancelar
           </button>
