@@ -5,10 +5,11 @@ const FormInputsContext = createContext();
 const initialState = {
   title: "",
   description: "",
-  content: "",
   slug: "",
-  img: "",
+  content: "",
   category: "",
+  categoryName: "",
+  img: "",
 };
 
 const FormInputsProvider = ({ children }) => {

@@ -1,16 +1,16 @@
-export default function Filter(topics, data) {
-  const filteredTopics = topics.filter((topic) => {
+export default function Filter(articles, data) {
+  const filteredArticles = articles.filter((article) => {
     return (
-      topic.titleTopic
+      article.title
         .toLowerCase()
         .includes(data.toLowerCase()) ||
-      topic.category.toLowerCase().includes(data.toLowerCase()) ||
-      topic.titleTopic
+      article.category.toLowerCase().includes(data.toLowerCase()) ||
+      article.title
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .includes(data.toLowerCase()) ||
-      topic.category
+      article.category
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
@@ -18,5 +18,5 @@ export default function Filter(topics, data) {
     );
   });
 
-  return filteredTopics;
+  return filteredArticles;
 }

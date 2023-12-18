@@ -14,16 +14,16 @@ export default function Form() {
     useContext(FormInputsContext);
 
   const [whatToAdd, setWhatToAdd] = useState("");
-  //states to upload a tool or a topic
-  const [toolToUpload, setToolToUpload] = useState({});
-  const [topicToUpload, setTopicToUpload] = useState({});
+  //states to upload an article or category
+  const [articleToUpload, setArticleToUpload] = useState({});
+  const [categoryToUpload, setCategoryToUpload] = useState({});
   //state to do appear a modal to upload something
   const [modal, setModal] = useState(false);
 
   //Choose the element to add, restart the state of formInputs and editActive (editActive is to know the element to edit)
   const handleWhatToAdd = (e) => {
     setWhatToAdd(e.target.value);
-    //setFormInputs(initialState);
+    setFormInputs(initialState);
   };
 
   const handleModal = (e) => {
@@ -32,51 +32,35 @@ export default function Form() {
     if (whatToAdd === "") {
       toast.error("¡Completa los campos!");
     } else {
-      //Case when you chose a tool
-      if (formInputs.imageTool !== "" && formInputs.categoryTopic === "") {
-        setToolToUpload({
-          titleTool: formInputs.title,
+      //Case when you chose an article
+      if (formInputs.img === "" && formInputs.title !== "") {
+        setArticleToUpload({
+          title: formInputs.title,
+          description: formInputs.description,
           slug: GenerateSlug(formInputs.title),
-          descriptionTool: formInputs.description,
-          imageTool: formInputs.imageTool,
+          content: formInputs.content,
+          category: formInputs.category
         });
         setModal(true);
-        //Case when you chose a topic
-      } else if (
-        formInputs.categoryTopic !== "" &&
-        formInputs.imageTool === ""
-      ) {
-        //You should choose at least one item to add
-        if (items.length === 0) {
-          toast("¡Debes agregar por lo menos un item!", {
-            icon: "⚠️",
-          });
-        } else {
-          setTopicToUpload({
-            titleTopic: formInputs.title,
-            slug: GenerateSlug(formInputs.title),
-            descriptionTopic: formInputs.description,
-            category: formInputs.categoryTopic,
-            content: items,
+        //Case when you chose a category
+      } else if(formInputs.img !== "" && formInputs.categoryName !== ""){
+          setCategoryToUpload({
+            category: formInputs.categoryName,
+            img: formInputs.img
           });
           setModal(true);
-        }
       }
     }
   };
 
   const handleSubmit = async () => {
     if (whatToAdd !== "") {
-      if (formInputs.imageTool !== "" && formInputs.categoryTopic === "") {
-        await uploadTool();
-        toast.success("¡Herramienta subida exitosamente!");
-      } else if (
-        formInputs.categoryTopic !== "" &&
-        formInputs.imageTool === "" &&
-        items.length !== 0
-      ) {
-        await uploadTopic();
-        toast.success("¡Tema subido exitosamente!");
+      if (formInputs.img === "" && formInputs.title !== "") {
+        await uploadArticle();
+        toast.success("Artículo subido exitosamente!");
+      } else if(formInputs.img !== "" && formInputs.categoryName !== ""){
+        await uploadCategory();
+        toast.success("Categoría subida exitosamente!");
       }
       setModal(false);
       //After doing the alert, redirect to index page
@@ -86,28 +70,28 @@ export default function Form() {
     }
   };
 
-  const uploadTool = async () => {
+  const uploadArticle = async () => {
     try {
-      await fetch(`${HOST_URL}api/tools`, {
+      await fetch(`${HOST_URL}api/articles`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(toolToUpload),
+        body: JSON.stringify(articleToUpload),
       });
     } catch (error) {
       console.log(error);
     }
   };
 
-  const uploadTopic = async () => {
+  const uploadCategory = async () => {
     try {
-      await fetch(`${HOST_URL}api/topics`, {
+      await fetch(`${HOST_URL}api/categories`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(topicToUpload),
+        body: JSON.stringify(categoryToUpload),
       });
     } catch (error) {
       console.log(error);

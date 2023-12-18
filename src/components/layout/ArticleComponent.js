@@ -8,7 +8,7 @@ import Code from "components/Code";
 import "katex/dist/katex.min.css";
 import styles from "../../styles/Home.module.css";
 
-export default function Article({markdown}) {
+export default function ArticleComponent({markdown}) {
   return (
     <div className={styles.contentArticle}>
             <ReactMarkdown

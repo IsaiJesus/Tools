@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FormInputsContext from "context/FormInputsContext";
-import Article from "components/layout/Article";
+import ArticleComponent from "components/layout/ArticleComponent";
 import styles from "../../styles/Home.module.css";
 
 export default function AsideForm() {
@@ -20,7 +20,7 @@ export default function AsideForm() {
           <h1>{formInputs.title}</h1>
           <p>{formInputs.description}</p>
         </div>
-        <Article markdown={formInputs.content} />
+        <ArticleComponent markdown={formInputs.content} />
       </div>
     </aside>
   );

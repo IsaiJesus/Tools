@@ -4,24 +4,25 @@ import styles from "../styles/Home.module.css";
 
 export default function BoxArticle({
   slug,
-  titleTopic,
-  descriptionTopic,
+  title,
+  description,
+  img,
   updatedAt,
 }) {
   const formattedDate = FormattedDate(updatedAt);
 
   return (
-    <Link href={`/topics/${slug}`}>
+    <Link href={`/articles/${slug}`}>
       <a className={styles.boxArticle}>
         <div className={styles.boxArticleTitle}>
-          <h3>{titleTopic}</h3>
+          <h3>{title}</h3>
           <img
-            src="https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"
-            alt=""
+            src={img}
+            alt={title}
             width={30}
           />
         </div>
-        <p className={styles.boxArticleDescription}>{descriptionTopic}</p>
+        <p className={styles.boxArticleDescription}>{description}</p>
         <p className={styles.boxDateArticle}>{formattedDate}</p>
       </a>
     </Link>

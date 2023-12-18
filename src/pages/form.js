@@ -16,17 +16,19 @@ const FormContainer = () => {
   });
 
   return (
-    <main className={styles.containerMain}>
+    <>
       <Head>
         <title>Upload contributions - Tools</title>
       </Head>
       <FormInputsProvider>
-        <div className={styles.containerForm}>
-          <Form />
-          <AsideForm />
+        <div className={styles.containerMain}>
+          <div className={styles.containerForm}>
+            <Form />
+            <AsideForm />
+          </div>
         </div>
       </FormInputsProvider>
-    </main>
+    </>
   );
 };
 

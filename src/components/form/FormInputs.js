@@ -8,16 +8,16 @@ export default function FormInputs({ whatToAdd, formInputs }) {
   const { handleChange } = useContext(FormInputsContext);
   const [categories, setCategories] = useState([]);
 
-  /*const getCategories = async () => {
-    fetch(`${HOST_URL}api/tools`)
+  const getCategories = async () => {
+    fetch(`${HOST_URL}api/categories`)
       .then((res) => res.json())
       .then((data) => {
-        setCategories(data.map((category) => category.titleTool));
+        setCategories(data.map((category) => category.category));
       });
   };
   useEffect(() => {
     getCategories();
-  }, []);*/
+  }, []);
 
   return (
     <div className={styles.formDivision}>
@@ -46,7 +46,7 @@ export default function FormInputs({ whatToAdd, formInputs }) {
             name="category"
             required
             className={styles.selectForm}
-            defaultValue={formInputs.categoryTopic}
+            defaultValue={formInputs.category}
             onChange={handleChange}
           >
             <option>Elige la categoría del artículo</option>
@@ -73,9 +73,9 @@ export default function FormInputs({ whatToAdd, formInputs }) {
         <>
           <input
             type="text"
-            name="category"
+            name="categoryName"
             required
-            value={formInputs.category}
+            value={formInputs.categoryName}
             className={styles.inputForm}
             onChange={handleChange}
             placeholder="Nombre de la categoría"

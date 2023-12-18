@@ -1,15 +1,15 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import useFetch from "hooks/useFetch";
 import HOST_URL from "consts/Host";
 import Filter from "helpers/Filter";
 import { BiSearch } from "react-icons/bi";
 import styles from "../../styles/Home.module.css";
-import Link from "next/link";
 
 const SearchForm = () => {
-  const url = `${HOST_URL}api/topics`;
-  const { topics } = useFetch(url);
+  const url = `${HOST_URL}api/articles`;
+  const { articles } = useFetch(url);
 
   const [change, setChange] = useState("");
   const router = useRouter();
@@ -26,7 +26,7 @@ const SearchForm = () => {
     setChange("");
   }
 
-  const filteredTopics = Filter(topics, change);
+  const filteredArticles = Filter(articles, change);
 
   return (
     <div className={styles.containerSearchNav}>
@@ -45,17 +45,17 @@ const SearchForm = () => {
       </form>
       <ul
         className={
-          filteredTopics.length === 0 || change === ""
+          filteredArticles.length === 0 || change === ""
             ? styles.containerSearchListOff
             : styles.containerSearchList
         }
       >
-        {filteredTopics
-          .map((topic) => (
-            <li key={topic._id}>
-              <Link href={`/topics/${topic.slug}`} >
+        {filteredArticles
+          .map((article) => (
+            <li key={article._id}>
+              <Link href={`/article/${article.slug}`} >
                 <a onClick={handleClick}>
-                  {topic.titleTopic}
+                  {article.title}
                 </a>
               </Link>
             </li>
@@ -67,14 +67,14 @@ const SearchForm = () => {
 };
 
 export default SearchForm;
-
+/*
 export const getServerSideProps = async () => {
-  const res = await fetch(`${HOST_URL}/api/topics`);
-  const topics = await res.json();
+  const res = await fetch(`${HOST_URL}/api/articles`);
+  const articles = await res.json();
 
   return {
     props: {
-      topics,
+      articles,
     },
   };
-};
+};*/

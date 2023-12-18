@@ -1,5 +1,5 @@
 import { dbConnect } from "utils/mongoose";
-import Topics from "models/Topics";
+import Articles from "models/Articles";
 
 dbConnect();
 
@@ -13,31 +13,31 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const topic = await Topics.findOne({ slug });
-        if (!topic) return res.status(404).json({ msg: "Topic not found" });
-        return res.status(200).json(topic);
+        const article = await Articles.findOne({ slug });
+        if (!article) return res.status(404).json({ msg: "Article not found" });
+        return res.status(200).json(article);
       } catch (error) {
         return res.status(500).json({ msg: error.message });
       }
 
     case "PUT":
       try {
-        const topicUpdate = await Topics.findOneAndUpdate({ slug }, body, {
+        const articleUpdate = await Articles.findOneAndUpdate({ slug }, body, {
           new: true,
         });
-        if (!topicUpdate)
-          return res.status(404).json({ msg: "Topic not found" });
-        return res.status(200).json(topicUpdate);
+        if (!articleUpdate)
+          return res.status(404).json({ msg: "Article not found" });
+        return res.status(200).json(articleUpdate);
       } catch (error) {
         return res.status(500).json({ msg: error.message });
       }
 
     case "DELETE":
       try {
-        const deletedTopic = await Topics.findOneAndDelete({ slug });
-        if (!deletedTopic)
-          return res.status(400).json({ msg: "Topic not found" });
-        return res.status(200).json(deletedTopic);
+        const deletedArticle = await Articles.findOneAndDelete({ slug });
+        if (!deletedArticle)
+          return res.status(400).json({ msg: "Article not found" });
+        return res.status(200).json(deletedArticle);
       } catch (error) {
         return res.status(400).json({ msg: error.message });
       }

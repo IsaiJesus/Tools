@@ -7,7 +7,7 @@ const articlesSchema = new Schema(
       required: [true, "Title is required"],
       unique: true,
       trim: true,
-      maxLength: [40, "Title must be less than 40 characters"],
+      maxLength: [60, "Title must be less than 60 characters"],
     },
     description: {
       type: String,
@@ -31,10 +31,7 @@ const articlesSchema = new Schema(
       required: [true, "Category is required"],
       trim: true,
       maxLength: [30, "Category must be less than 30 characters"],
-    },
-    tags: {
-      type: [String],
-    },
+    }
   },
   {
     timestamps: true,

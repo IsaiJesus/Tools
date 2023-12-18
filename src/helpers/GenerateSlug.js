@@ -13,13 +13,13 @@ export default function GenerateSlug(text) {
   //Verificar si el input contiene caracteres no permitidos
   if (!regex.test(slug)) {
     //Elimina caracteres no permitidos utilizando replace() con una expresión regular
-    const textoFiltrado = slug.replace(
+    const filteredText = slug.replace(
       /[!¡@#$%^&*()_+=[\]{}`;':"\\|°,.<>/¿?~]/g,
       ""
     );
     
     //Si no hay caracteres no permitidos, devolver el texto original
-    return textoFiltrado;
+    return filteredText;
   }
 
   return slug;

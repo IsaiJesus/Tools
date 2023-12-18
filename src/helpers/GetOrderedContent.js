@@ -1,10 +1,10 @@
-export default function OrderedContent(contents) {
-  const OrderedContent = contents
-    .map((content) => {
+export default function OrderedContent(content) {
+  const OrderedContent = content
+    .map((singleContent) => {
       return {
-        ...content,
-        createdAt: content.createdAt ? new Date(content.createdAt) : new Date(),
-        updatedAt: content.updatedAt ? new Date(content.updatedAt) : new Date(),
+        ...singleContent,
+        createdAt: singleContent.createdAt ? new Date(singleContent.createdAt) : new Date(),
+        updatedAt: singleContent.updatedAt ? new Date(singleContent.updatedAt) : new Date(),
       };
     })
     .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());

@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import HOST_URL from "consts/Host";
+import Section from "components/layout/Section";
 import Filter from "helpers/Filter";
-import TopicBox from "components/BoxArticle";
 import styles from "../styles/Home.module.css";
 
-function Search({ topics }) {
+function Search({ articles }) {
   const router = useRouter();
   const query = router.query.query;
 
@@ -16,43 +16,29 @@ function Search({ topics }) {
     }
   }, [query, router]);
 
-  const filteredTopics = Filter(topics, query);
+  const filteredArticles = Filter(articles, query);
 
   return (
-    <div className={styles.toolContainer}>
+    <>
       <Head>
         <title>Resultados de la búsqueda: {query}</title>
       </Head>
-      <div className={styles.toolBox}>
-        <div className={styles.searchHeader}>
-          <h1>Resultados de la búsqueda:</h1>
-          <p>{query}</p>
-        </div>
-        <div className={styles.topicsContainer}>
-          {filteredTopics.length === 0 || query === "" ? (
-            <h1 className={styles.notFound}>
-              ¡No se han encontrado resultados!
-            </h1>
-          ) : (
-            filteredTopics.map((topic) => (
-              <TopicBox key={topic._id} {...topic} />
-            ))
-          )}
-        </div>
+      <div className={styles.containerMain}>
+        <Section titleHeader={"Resultados de la búsqueda: \"" + query+ "\""} articles={filteredArticles}/>
       </div>
-    </div>
+    </>
   );
 }
 
 export default Search;
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`${HOST_URL}/api/topics`);
-  const topics = await res.json();
+  const res = await fetch(`${HOST_URL}/api/articles`);
+  const articles = await res.json();
 
   return {
     props: {
-      topics,
+      articles,
     },
   };
 };

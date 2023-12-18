@@ -1,5 +1,5 @@
 import { dbConnect } from "utils/mongoose";
-import Topics from "models/Topics";
+import Categories from "models/Categories";
 
 dbConnect();
 
@@ -9,17 +9,17 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const topics = await Topics.find();
-        return res.status(200).json(topics);
+        const categories = await Categories.find();
+        return res.status(200).json(categories);
       } catch (error) {
         return res.status(500).json({ error: error.message });
       }
 
     case "POST":
       try {
-        const newTopic = new Topics(body);
-        const savedTopic = await newTopic.save();
-        return res.status(201).json(savedTopic);
+        const newCategory = new Categories(body);
+        const savedCategory = await newCategory.save();
+        return res.status(201).json(savedCategory);
       } catch (error) {
         return res.status(500).json({ error: error.message });
       }

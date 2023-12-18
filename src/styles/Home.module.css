@@ -76,13 +76,15 @@
   }
   .mainHeaderText{
     padding: 0;
-    margin-bottom: 8px;
+    margin: 0 0 16px 0;
   }
   .mainHeaderText h1{
+    margin-bottom: 18px;
     padding: 0;
-    font-size: 32px;
+    font-size: 34px;
   }
   .mainHeaderText h2{
+    padding: 0;
     margin: 0 0 10px 0;
     font-size: 20px;
   }
@@ -171,7 +173,7 @@
   padding: 15px 0;
   max-height: 200px;
   overflow-y: auto;
-  width: calc(100%);
+  width: 100%;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   background-color: #121212;
@@ -191,7 +193,7 @@
 }
 
 .containerSearchList li a{
-  padding: 8px 15px;  
+  padding: 8px 12px;  
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -206,9 +208,6 @@
 @media only screen and (max-width: 768px){
   .containerNav{
     padding: 10px 20px;
-  }
-  .containerNav a h1{
-    display: none;
   }
   .searchNav input{
     width: 100%;
@@ -243,7 +242,7 @@
 
 .titleSection h2{
   margin: 0;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 800;
   color: #FFF;
 }
@@ -348,7 +347,7 @@
 }
 
 .contentArticle{
-  padding: 30px 0;
+  padding: 10px 0 30px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -683,7 +682,8 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
 }
 
 .closeContainerModal{
@@ -691,7 +691,7 @@
 }
 
 .modal{
-  padding: 16px;
+  padding: 20px;
   margin: 30px;
   display: flex;
   flex-direction: column;
@@ -721,7 +721,7 @@
 }
 
 .modal h1{
-  margin: 0;
+  margin: 20px 0;
   font-size: 24px;
   text-align: center;
   color: #FFF;
@@ -818,40 +818,15 @@
   }
 }
 
-/* SEARCH */
-/*
-.searchHeader{
-  padding: 35px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #FFF;
-  border-bottom: 1px solid #373c43;
-}
-
-.searchHeader h1{
-  margin: 0 0 12px 0;
-}
-
-.searchHeader p{
-  margin: 0;
-  font-size: 22px;
-}
-
-@media only screen and (max-width: 768px){
-  .searchHeader{
-    padding: 35px 0;
-  }
-}*/
-
 /* NOT FOUND */
-/*
+
 .notFound{
   padding: 25px 0;
-  margin: 16px 0;
-  color: #FFF;
+  margin: 0;
+  font-size: 32px;
   text-align: center;
-}*/
+  color: #FFF;
+}
 
 /* FOOTER */
 

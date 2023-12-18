@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
-  const [topics, setTopics] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   const getData = async () => {
     const res = await fetch(url);
     const data = await res.json();
-    setTopics(data);
+    setArticles(data);
   };
 
   useEffect(() => {
     getData();
   },);
   
-  return { topics };
+  return { articles };
 };
 
 export default useFetch;
