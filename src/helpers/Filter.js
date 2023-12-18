@@ -18,5 +18,5 @@ export default function Filter(articles, data) {
     );
   });
 
-  return filteredArticles;
+  return filteredArticles.slice(0, 8);
 }

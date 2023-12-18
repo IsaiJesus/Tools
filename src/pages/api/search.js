@@ -5,12 +5,17 @@ import Categories from "models/Categories";
 dbConnect();
 
 export default async function handler(req, res) {
-  const { method, body } = req;
+  const { method, body, query: {query} } = req;
 
   switch (method) {
     case "GET":
       try {
-        const articles = await Articles.find().lean();
+        const articles = await Articles.find({
+          $or: [
+            { title: { $regex: new RegExp(query, 'i') } },  // Búsqueda por título
+            { category: { $regex: new RegExp(query, 'i') } },  // Búsqueda por categoría
+          ],
+        }).lean();
         // Obtén todas las categorías de los artículos
         const categories = await Categories.find().lean();
         // Crea un mapa de categorías para facilitar la búsqueda por categoría
@@ -19,22 +24,13 @@ export default async function handler(req, res) {
           categoryMap[category.category] = category;
         });
         // Modifica cada artículo para incluir la información de la categoría
-        const articlesWithCategoryImg = articles.map((article) => ({
+        const articlesSearch = articles.map((article) => ({
           ...article,
           img: categoryMap[article.category]
             ? categoryMap[article.category].img
             : null,
         }));
-        return res.status(200).json(articlesWithCategoryImg);
-      } catch (error) {
-        return res.status(500).json({ error: error.message });
-      }
-
-    case "POST":
-      try {
-        const newArticle = new Articles(body);
-        const savedArticle = await newArticle.save();
-        return res.status(201).json(savedArticle);
+        return res.status(200).json(articlesSearch);
       } catch (error) {
         return res.status(500).json({ error: error.message });
       }

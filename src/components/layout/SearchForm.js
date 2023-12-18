@@ -11,6 +11,7 @@ const SearchForm = () => {
   const url = `${HOST_URL}api/articles`;
   const { articles } = useFetch(url);
 
+  const [inputFocus, setInputFocus] = useState(false);
   const [change, setChange] = useState("");
   const router = useRouter();
   const inputRef = useRef(null);
@@ -26,6 +27,14 @@ const SearchForm = () => {
     setChange("");
   }
 
+  // funciones para manejar el focus del input y mostrar o no el contenido
+  const setFocus = () => {
+    setInputFocus(true);
+  };
+  const setBlur = () => {
+    setInputFocus(false);
+  };
+
   const filteredArticles = Filter(articles, change);
 
   return (
@@ -38,6 +47,8 @@ const SearchForm = () => {
           required
           onChange={(e) => setChange(e.target.value)}
           value={change}
+          onFocus={setFocus}
+          onBlur={setBlur}
         />
         <button>
           <BiSearch size="20px" />
@@ -45,7 +56,7 @@ const SearchForm = () => {
       </form>
       <ul
         className={
-          filteredArticles.length === 0 || change === ""
+          filteredArticles.length === 0 || change === "" || !inputFocus
             ? styles.containerSearchListOff
             : styles.containerSearchList
         }
@@ -67,14 +78,3 @@ const SearchForm = () => {
 };
 
 export default SearchForm;
-/*
-export const getServerSideProps = async () => {
-  const res = await fetch(`${HOST_URL}/api/articles`);
-  const articles = await res.json();
-
-  return {
-    props: {
-      articles,
-    },
-  };
-};*/
