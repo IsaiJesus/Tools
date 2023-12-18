@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Error from "next/error";
 import HOST_URL from "consts/Host";
 import OrderedContent from "helpers/GetOrderedContent";
 import MainHeader from "components/layout/MainHeader";
