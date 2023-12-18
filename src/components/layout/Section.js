@@ -12,7 +12,7 @@ export default function Section({ titleHeader, articles }) {
           <h2>{titleHeader}</h2>
         </div>
         <section className={styles.containerArticles}>
-          {articles.length === 0 && query === "" ? (
+          {articles.length === 0 || query === "" ? (
             <h1 className={styles.notFound}>
               ¡No existe contenido!
             </h1>
