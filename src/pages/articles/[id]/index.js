@@ -2,9 +2,13 @@ import Head from "next/head";
 import Error from "next/error";
 import HOST_URL from "consts/Host";
 import ArticleComponent from "components/layout/ArticleComponent";
+import FormattedDate from "helpers/FormattedDate";
 import styles from "../../../styles/Home.module.css";
 
 export default function Article({ article, error }) {
+
+  const formattedDate = FormattedDate(article.updatedAt);
+
   if (error && error.statusCode)
     return <Error statusCode={error.statusCode} title={error.statusText} />;
 
@@ -21,7 +25,7 @@ export default function Article({ article, error }) {
               <p className={styles.headerArticleDescription}>
                 {article.description}
               </p>
-              <p className={styles.headerArticleDate}>25 de octubre de 2023</p>
+              <p className={styles.headerArticleDate}>{formattedDate}</p>
             </div>
             <div className={styles.contentArticle}>
               <ArticleComponent markdown={article.content} />
