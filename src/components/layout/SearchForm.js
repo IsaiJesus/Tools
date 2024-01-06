@@ -32,7 +32,9 @@ const SearchForm = () => {
     setInputFocus(true);
   };
   const setBlur = () => {
-    setInputFocus(false);
+    setTimeout(() => {
+      setInputFocus(false);
+    }, 120);
   };
 
   const filteredArticles = Filter(articles, change);
@@ -64,7 +66,7 @@ const SearchForm = () => {
         {filteredArticles
           .map((article) => (
             <li key={article._id}>
-              <Link href={`/article/${article.slug}`} >
+              <Link href={`/articles/${article.slug}`} >
                 <a onClick={handleClick}>
                   {article.title}
                 </a>
