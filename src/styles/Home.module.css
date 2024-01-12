@@ -285,6 +285,10 @@
   color: #FFFFFF;
 }
 
+.boxArticle img{
+  margin-left: 8px;
+}
+
 .boxArticleDescription{
   font-size: 18px;
   padding: 0 0 8px 0;
@@ -454,6 +458,7 @@
 .contentArticle table img{
   margin: 4px;
   max-width: 160px;
+  object-fit: contain;
 }
 
 .contentArticle img{
@@ -462,6 +467,7 @@
   max-height: 300px;
   max-width: 100%;
   border-radius: 2px;
+  object-fit: contain;
 }
 
 .contentArticle code{
