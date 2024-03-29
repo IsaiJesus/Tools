@@ -19,7 +19,7 @@ export default function BoxArticle({
           <img
             src={img}
             alt={title}
-            width={30}
+            height={30}
           />
         </div>
         <p className={styles.boxArticleDescription}>{description}</p>
