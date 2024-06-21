@@ -96,6 +96,31 @@ export default function FormInputs({ whatToAdd, formInputs }) {
       {whatToAdd !== "article" && whatToAdd !== "category" && (
         <Warning text={"Elige una opción determinada."} />
       )}
+      {whatToAdd === "article" ? (
+        <>
+          <div className={styles.boxMD}>
+            <b>Título:</b> # <br />
+            <b>Subtítulo 1:</b> ## <br />
+            <b>Subtítulo 2:</b> ### <br /> <br />
+            <b>Texto en negrita:</b> ** ó __
+            <br />
+            <b>Texto en itálica:</b> * <br />
+            <b>Texto tachado:</b> ~~
+            <br /> <br />
+            <b>Línea de división:</b> ___ <br /> <br />
+            <b>Lista desordenada:</b> - <br />
+            <b>Lista ordenada:</b> 1. <br />
+            <b>Lista de tareas:</b> - [ ] <br />
+            <b>Lista de tareas hecha:</b> - [x] <br />
+            <b>Blockquote:</b> {">"} <br /> <br />
+            <b>Imagen:</b> ![Texto](URL) <br />
+            <b>Tabla:</b> | Títulos | |--| | Contenido | <br />
+            <b>URL:</b> [Texto](URL) <br /> <br />
+            <b>Código:</b> ~~~ Lenguaje de programación ó `` <br /> <br />
+            <b>Katex:</b> $$
+          </div>
+        </>
+      ) : null}
     </div>
   );
 }

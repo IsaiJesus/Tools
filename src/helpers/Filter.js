@@ -4,13 +4,23 @@ export default function Filter(articles, data) {
       article.title
         .toLowerCase()
         .includes(data.toLowerCase()) ||
-      article.category.toLowerCase().includes(data.toLowerCase()) ||
+      article.category
+        .toLowerCase()
+        .includes(data.toLowerCase()) ||
+      article.description
+        .toLowerCase()
+        .includes(data.toLowerCase()) ||
       article.title
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .includes(data.toLowerCase()) ||
       article.category
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .includes(data.toLowerCase()) ||
+      article.description
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()

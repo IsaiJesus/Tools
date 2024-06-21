@@ -25,3 +25,8 @@ body {
   font-family: 'Inter', sans-serif;
   white-space: pre-line
 }
+
+hr{
+  border-color: #2C2C2C;
+  width: 100%;
+}
