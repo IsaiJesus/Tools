@@ -1,29 +1,10 @@
-::-webkit-scrollbar{
-  height: 10px;
-  width: 8px;
-}
-
-::-webkit-scrollbar-track{
-  background: #1A1A1A;
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb{
-  background: #121212;
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background: rgba(0, 0, 0, 0.4);
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
   background-color: #202225;
   font-family: 'Inter', sans-serif;
-  white-space: pre-line
+  white-space: pre-line;
 }
 
 hr{

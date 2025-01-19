@@ -9,12 +9,12 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/img/favicon.ico" />
         <meta
           name="description"
-          content="Tools. Herramientas, recursos y consejos para mejorar tus habilidades en programación y tecnología."
+          content="Herramientas, recursos y consejos para mejorar tus habilidades en programación y tecnología."
         />
         <meta name="author" content="Isai Jesús" />
         <meta
           name="keywords"
-          content="blog, programming, programacion, code, resources, recursos, tips, Isai Jesus Tapia Alcazar, Instituto Tecnologico de Zacatepec"
+          content="blog, programming, programacion, code, resources, recursos, tips, Isai Jesús, Morelos"
         />
       </Head>
       <Layout>

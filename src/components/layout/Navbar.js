@@ -12,7 +12,7 @@ const Navbar = () => {
         </a>
       </Link>
       <SearchForm />
-      <a href="https://isaijesus.study" target="_blank" rel="noreferrer">
+      <a href="https://www.isaijesus.com/" target="_blank" rel="noreferrer">
         <Image src="/img/avatar.webp" alt="Portfolio" width={70} height={70} />
       </a>
     </nav>
